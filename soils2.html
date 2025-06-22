@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Guide to Soils</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- MathJax CDN -->
+    <script>
+        MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    </script>
+
+    <style>
+        /* Custom styles for a fixed, non-scrolling layout */
+        html, body {
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Custom scrollbar for webkit browsers */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* Styling for the details/summary accordion */
+        details > summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 0.75rem;
+            background-color: #f3f4f6;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        details > summary:hover {
+            background-color: #e5e7eb;
+        }
+
+        details[open] > summary {
+            background-color: #d1d5db;
+        }
+        
+        details > div {
+            padding: 1rem;
+            border: 1px solid #d1d5db;
+            border-top: none;
+            border-radius: 0 0 0.375rem 0.375rem;
+        }
+
+        /* Minor style adjustments for content */
+        .slide h2 {
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 0.5rem;
+        }
+        .slide h3 {
+            color: #1f2937;
+        }
+        .slide h4 {
+            color: #374151;
+        }
+
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Main Container -->
+    <div class="flex h-screen">
+
+        <!-- Sidebar / Navigation Menu -->
+        <aside id="sidebar" class="bg-gray-800 text-white w-64 flex-shrink-0 custom-scrollbar overflow-y-auto hidden md:block transition-all duration-300">
+            <div class="p-4">
+                <h1 class="text-xl font-bold">Soils</h1>
+                <nav id="side-menu" class="mt-8">
+                    <ul>
+                        <!-- Navigation links will be dynamically populated by JavaScript -->
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 flex flex-col">
+            <!-- Header with Hamburger Menu and Breadcrumbs -->
+            <header class="bg-white shadow-md p-4 flex items-center justify-between">
+                <button id="hamburger-menu" class="md:hidden text-gray-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+                <div id="breadcrumbs" class="text-sm text-gray-500 font-medium">
+                    <!-- Breadcrumbs will be dynamically updated by JavaScript -->
+                </div>
+            </header>
+
+            <!-- Slide Content -->
+            <div id="content-area" class="flex-1 p-6 lg:p-8 custom-scrollbar overflow-y-auto bg-white">
+                
+                <!-- Slide 1: Introduction -->
+                <div class="slide" data-title="Introduction">
+                    <h2 class="text-2xl font-bold mb-4">Introduction: The Foundation of Life</h2>
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Defining Soil: Beyond Dirt</h3>
+                    <p class="mb-4">Soil is scientifically defined as the uppermost layer of loose and unconsolidated material that overlies the Earth's crustal rocks and on which plants grow. Far from being inert dirt, soil is a dynamic, living ecosystem. It is a complex mixture of four primary components: inorganic mineral matter, organic matter (humus), soil water, and soil air. The intricate interplay of these components creates the medium that sustains terrestrial life. The soils of any region, including Kenya, are a direct legacy of its geological and climatic history, which in turn dictates its agricultural potential and economic activities.</p>
+
+                    <h3 class="text-xl font-semibold mt-6 mb-2">The Critical Significance of Soil</h3>
+                    <p class="mb-4">The importance of soil extends far beyond agriculture. It is a cornerstone of both ecological stability and economic prosperity. Soil provides physical anchorage for plant root systems, acts as a vast reservoir of water and nutrients, and serves as a habitat for a staggering diversity of microorganisms essential for nutrient cycling. Economically, soils are fundamental, providing building materials and forming the basis of agriculture, which is vital for food security, employment, and national economies like Kenya's.</p>
+                </div>
+
+                <!-- Slide 2: Soil Formation -->
+                <div class="slide hidden" data-title="Soil Formation">
+                    <h2 class="text-2xl font-bold mb-4">Section 1: The Genesis of Soil – Formation Processes</h2>
+                    <h3 class="text-xl font-semibold mt-6 mb-2">1.1 The Foundational Process: Weathering</h3>
+                    <p class="mb-4">The journey of soil formation begins with weathering, the in-situ (in place) mechanical disintegration and chemical decomposition of parent rock. This breaks down solid rock into regolith, the primary mineral constituent of soil. Key weathering processes include:</p>
+                    <ul class="list-disc list-inside space-y-2 mb-4">
+                        <li><strong>Physical Weathering:</strong> Breakdown without chemical change, including exfoliation, block/granular disintegration, frost action, and pressure release.</li>
+                        <li><strong>Chemical Weathering:</strong> Alteration of the rock's mineral composition, including hydrolysis, carbonation, and oxidation. This is dominant in warm, humid climates like Kenya's highlands.</li>
+                    </ul>
+                    <div class="w-full h-48 bg-gray-200 flex items-center justify-center rounded-lg my-4"><span class="text-gray-500">Diagram Placeholder: Weathering Processes</span></div>
+
+                    <h3 class="text-xl font-semibold mt-6 mb-2">1.2 The Biological Engine: Organic Matter and Humus</h3>
+                    <p class="mb-4">Living organisms profoundly influence soil formation. The decomposition of plant and animal remains leads to the formation of <strong>humus</strong>, a stable form of organic matter vital for fertility, structure, and water retention. This process, driven by microorganisms, involves two stages:</p>
+                    <ol class="list-decimal list-inside space-y-2 mb-4">
+                        <li><strong>Mineralization:</strong> The initial breakdown of organic tissues into simpler substances.</li>
+                        <li><strong>Humification:</strong> The re-synthesis of these simpler substances into complex, stable humus molecules.</li>
+                    </ol>
+
+                    <h3 class="text-xl font-semibold mt-6 mb-2">1.3 Vertical Movement: Leaching and Translocation</h3>
+                    <p class="mb-4">As water moves through the soil, it transports materials vertically, creating distinct layers or horizons. This includes:</p>
+                    <ul class="list-disc list-inside space-y-2 mb-4">
+                        <li><strong>Leaching:</strong> The chemical removal of soluble minerals from upper soil layers.</li>
+                        <li><strong>Eluviation:</strong> The physical washing down of fine mineral particles (like clay) in suspension.</li>
+                        <li><strong>Illuviation:</strong> The accumulation of these leached and eluviated materials in lower soil layers.</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold mt-6 mb-2">1.4 The Five Factors of Soil Formation (CLORPT)</h3>
+                    <p class="mb-4">The final character of any soil is the result of the complex interplay of five major factors over time: <strong>Cl</strong>imate, <strong>O</strong>rganisms, <strong>R</strong>elief, <strong>P</strong>arent Material, and <strong>T</strong>ime.</p>
+                </div>
+
+                <!-- Slide 3: Soil Properties -->
+                <div class="slide hidden" data-title="Soil Properties">
+                    <h2 class="text-2xl font-bold mb-4">Section 2: Soil Properties and Characteristics</h2>
+                    <p class="mb-4">The physical and chemical properties of soil determine its ability to support life and its suitability for various uses.</p>
+                    <h3 class="text-xl font-semibold mt-6 mb-2">2.1 Physical Properties</h3>
+                    <ul class="list-disc list-inside space-y-2 mb-4">
+                        <li><strong>Soil Texture:</strong> Refers to the proportion of sand, silt, and clay particles. It influences water retention, aeration, and root penetration.</li>
+                        <li><strong>Soil Structure:</strong> Describes how soil particles are grouped into aggregates or "peds". Good structure allows for proper air and water circulation.</li>
+                        <li><strong>Soil Color:</strong> Provides clues about composition. Dark soils often indicate high humus content, red/yellow soils suggest iron oxides and good drainage, while grey/mottled colors imply poor drainage.</li>
+                        <li><strong>Soil Depth:</strong> The thickness of the soil layer above the parent rock, influenced by weathering, topography, and time.</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold mt-6 mb-2">2.2 Chemical and Hydrological Properties</h3>
+                    <ul class="list-disc list-inside space-y-2 mb-4">
+                        <li><strong>Soil Acidity (pH):</strong> A measure of acidity or alkalinity, affecting nutrient availability and microbial activity.</li>
+                        <li><strong>Porosity:</strong> The amount of pore space within a soil, determining its capacity to hold air and water.</li>
+                        <li><strong>Permeability:</strong> The ease with which water can move through the soil. Sandy soils are highly permeable, while clay soils have low permeability.</li>
+                    </ul>
+                </div>
+
+                <!-- Slide 4: Soil Profile and Catena -->
+                <div class="slide hidden" data-title="Soil Profile & Catena">
+                    <h2 class="text-2xl font-bold mb-4">Section 3: Soil Profile and Soil Catena</h2>
+                    <h3 class="text-xl font-semibold mt-6 mb-2">3.1 Soil Profile</h3>
+                    <p class="mb-4">A soil profile is a vertical cross-section of the soil from the surface down to the parent material, revealing distinct layers called <strong>horizons</strong>:</p>
+                    <ul class="list-disc list-inside space-y-2 mb-4">
+                        <li><strong>O Horizon (Organic):</strong> Top layer of fresh and decaying organic matter.</li>
+                        <li><strong>A Horizon (Topsoil):</strong> Dark layer rich in humus and minerals; zone of biological activity and eluviation.</li>
+                        <li><strong>B Horizon (Subsoil):</strong> Lighter colored layer; zone of illuviation where leached materials accumulate.</li>
+                        <li><strong>C Horizon (Parent Material):</strong> Weathered rock fragments (regolith).</li>
+                        <li><strong>R Horizon (Bedrock):</strong> Unweathered, solid parent rock.</li>
+                    </ul>
+                    <div class="w-full h-48 bg-gray-200 flex items-center justify-center rounded-lg my-4"><span class="text-gray-500">Diagram Placeholder: Soil Profile Horizons</span></div>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">3.2 Soil Catena</h3>
+                    <p class="mb-4">A soil catena is the sequence of different soil types found down a slope, all derived from the same parent material but varying due to differences in relief and drainage. Typically:</p>
+                     <ul class="list-disc list-inside space-y-2 mb-4">
+                        <li><strong>Hilltop:</strong> Well-drained, mature soils.</li>
+                        <li><strong>Steep Slopes:</strong> Thin, stony, immature soils due to high erosion.</li>
+                        <li><strong>Gentle Slopes:</strong> Deeper soils where erosion and weathering are balanced.</li>
+                        <li><strong>Valley Bottom:</strong> Deep, often waterlogged soils due to deposition.</li>
+                    </ul>
+                </div>
+
+                <!-- Slide 5: Soil Classification -->
+                <div class="slide hidden" data-title="Soil Classification">
+                    <h2 class="text-2xl font-bold mb-4">Section 4: Soil Classification</h2>
+                    <p class="mb-4">Soils are classified into major groups called <strong>orders</strong> based on their properties and dominant formation factors. The main orders are Zonal, Intrazonal, and Azonal.</p>
+                    <h3 class="text-xl font-semibold mt-6 mb-2">4.1 Zonal Soils</h3>
+                    <p class="mb-2">Mature soils with well-developed profiles, strongly influenced by climate and vegetation.</p>
+                    <ul class="list-disc list-inside space-y-2 mb-4">
+                        <li><strong>Podzols:</strong> Acidic soils of cool, humid forests.</li>
+                        <li><strong>Latosols:</strong> Deeply weathered, reddish tropical soils.</li>
+                        <li><strong>Chernozems:</strong> Dark, fertile grassland soils.</li>
+                        <li><strong>Vertisols (Black Cotton Soils):</strong> Dark, cracking clay soils found in plains. In Kenya, found in the Kano Plains and Mwea, used for rice and cotton.</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold mt-6 mb-2">4.2 Intrazonal Soils</h3>
+                    <p class="mb-2">Development is more influenced by local conditions like drainage or parent material.</p>
+                    <ul class="list-disc list-inside space-y-2 mb-4">
+                        <li><strong>Hydromorphic Soils:</strong> Formed in waterlogged areas.</li>
+                        <li><strong>Halomorphic Soils:</strong> Saline/alkaline soils of arid regions.</li>
+                        <li><strong>Andosols:</strong> Fertile soils from volcanic ash, found in Kenya's Rift Valley. Ideal for horticulture but have high phosphorus fixation.</li>
+                    </ul>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">4.3 Azonal Soils</h3>
+                    <p class="mb-2">Young, immature soils without a well-developed profile.</p>
+                    <ul class="list-disc list-inside space-y-2 mb-4">
+                        <li><strong>Lithosols:</strong> Thin, stony soils on steep slopes.</li>
+                        <li><strong>Regosols:</strong> Soils on deep, unconsolidated materials like dunes.</li>
+                        <li><strong>Alluvial Soils:</strong> Young, fertile soils from recent river deposits.</li>
+                    </ul>
+                </div>
+
+                <!-- Slide 6: Soil Degradation and Conservation -->
+                <div class="slide hidden" data-title="Degradation & Conservation">
+                    <h2 class="text-2xl font-bold mb-4">Section 5: Soil Degeneration, Erosion and Conservation</h2>
+                    <h3 class="text-xl font-semibold mt-6 mb-2">5.1 Soil Degeneration and Erosion</h3>
+                    <p class="mb-2">Soil degeneration is the decline in soil quality. It can be:</p>
+                    <ul class="list-disc list-inside space-y-2 mb-4">
+                        <li><strong>Physical:</strong> Loss of structure, compaction.</li>
+                        <li><strong>Chemical:</strong> Nutrient depletion, changes in pH (acidity/salinity).</li>
+                        <li><strong>Biological:</strong> Loss of humus and microorganisms.</li>
+                    </ul>
+                    <p class="mb-4"><strong>Soil erosion</strong> is the removal of topsoil by water and wind, a major form of physical degeneration. Water erosion progresses from splash, to sheet, to rill, and finally to gully erosion.</p>
+                    <div class="w-full h-48 bg-gray-200 flex items-center justify-center rounded-lg my-4"><span class="text-gray-500">Diagram Placeholder: Types of Water Erosion</span></div>
+
+                    <h3 class="text-xl font-semibold mt-6 mb-2">5.2 Soil Management and Conservation</h3>
+                    <p class="mb-2">Protecting soil is crucial. Key practices include:</p>
+                    <ul class="list-disc list-inside space-y-3">
+                        <li><strong>Managing Soil Fertility:</strong> Using crop rotation, mixed farming, and applying organic manure. For acidic soils, adding lime helps; for alkaline soils, gypsum can be used.</li>
+                        <li><strong>Controlling Erosion (Agronomic Measures):</strong>
+                            <ul class="list-circle list-inside ml-4">
+                                <li><strong>Cover Cropping:</strong> Planting crops to cover soil during fallow periods.</li>
+                                <li><strong>Mulching:</strong> Covering soil with residues to protect from raindrop impact and reduce evaporation.</li>
+                                <li><strong>Contour Ploughing:</strong> Ploughing across a slope to create furrows that trap water.</li>
+                                <li><strong>Agroforestry:</strong> Integrating trees into farming systems to stabilize soil.</li>
+                            </ul>
+                        </li>
+                         <li><strong>Controlling Erosion (Engineering Measures):</strong>
+                            <ul class="list-circle list-inside ml-4">
+                                <li><strong>Terracing (e.g., Fanya Juu):</strong> Building step-like benches on slopes to slow runoff and trap soil.</li>
+                                <li><strong>Check Dams & Diversion Channels:</strong> Structures to control water flow in gullies and on slopes.</li>
+                                <li><strong>Zai Pits:</strong> Small pits dug to harvest water and concentrate fertility in arid lands.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Sustainable Land Use:</strong> Afforestation and managing grazing to prevent soil exposure.</li>
+                    </ul>
+                </div>
+                
+                <!-- Slide 7: Revision Questions -->
+                <div class="slide hidden" data-title="Revision Questions">
+                    <h2 class="text-2xl font-bold mb-4">Revision Questions</h2>
+                    <div class="space-y-4">
+                        <p class="text-center font-semibold p-4 bg-gray-100 rounded-lg">Expand the sections below to see the answers.</p>
+                        <details><summary>1. Define soil according to the provided sources.</summary><div><p>Soil is defined as the thin, dynamic layer of material covering the Earth's surface, formed from the weathering of rocks and the decay of organic matter. It is also scientifically defined as the uppermost layer of loose and unconsolidated material that overlies the Earth's crustal rocks and on which plants grow.</p></div></details>
+                        <details><summary>2. List the four main components that make up soil.</summary><div><p>The four main components that make up soil are: Inorganic Matter (Mineral Particles), Organic Matter (Humus), Soil Water, and Soil Air.</p></div></details>
+                        <details><summary>3. Explain the importance of organic matter (humus) in soil.</summary><div><p>Organic matter, also known as humus, is vital because it supplies nutrients, improves water retention, promotes a healthy soil structure for air and water circulation, and provides food for soil microorganisms.</p></div></details>
+                        <details><summary>4. What is the primary function of soil water in the soil ecosystem?</summary><div><p>Soil water holds dissolved minerals and is essential for plant growth and the chemical reactions occurring within the soil.</p></div></details>
+                        <details><summary>5. State the role of soil air in soil composition.</summary><div><p>Soil air occupies the pore spaces not filled with water and provides the oxygen necessary for the respiration of plant roots and soil organisms.</p></div></details>
+                        <details><summary>6. What is the scientific definition of soil provided in the sources?</summary><div><p>Soil is scientifically defined as the uppermost layer of loose and unconsolidated material that overlies the Earth's crustal rocks and on which plants grow.</p></div></details>
+                        <details><summary>7. Beyond agriculture, list two significant roles of soil as an ecological and economic cornerstone.</summary><div><p>Ecologically, soil acts as a habitat for a vast array of organisms and anchors plant root systems. Economically, it is a direct source of building materials like sand and clay, and its health is directly linked to national food security and employment.</p></div></details>
+                        <details><summary>8. Define pedogenesis.</summary><div><p>Pedogenesis is the scientific term for the process of soil formation.</p></div></details>
+                        <details><summary>9. Describe the initial stage of soil formation, weathering, and its product.</summary><div><p>The initial stage is weathering, where parent rock is broken down into smaller particles. The product of this process is known as regolith.</p></div></details>
+                        <details><summary>10. Differentiate between mineralization and humification.</summary><div><p>Mineralization is the initial breakdown of complex organic tissues into simpler substances. Humification is the subsequent re-synthesis of these substances into stable, complex humus molecules.</p></div></details>
+                        <details><summary>11. Explain the general process of leaching in soil formation.</summary><div><p>Leaching is the chemical process where soluble minerals are washed down from the upper soil layers to lower layers by percolating water.</p></div></details>
+                        <details><summary>12. Distinguish between eluviation and illuviation processes in soil.</summary><div><p>Eluviation is the physical washing down of fine mineral particles (like clay) in suspension from upper to lower horizons. Illuviation is the deposition and accumulation of these materials in a lower soil layer.</p></div></details>
+                        <details><summary>13. List the five key factors influencing soil formation, using their common acronym.</summary><div><p>The five factors are Climate, Organisms, Relief, Parent Material, and Time (CLORPT).</p></div></details>
+                        <details><summary>14. How does climate (temperature and precipitation) influence soil formation?</summary><div><p>High temperatures and rainfall accelerate chemical weathering and decomposition, leading to deep soils. Arid climates favor physical weathering and can lead to salt accumulation.</p></div></details>
+                        <details><summary>15. Explain how living organisms (biota) contribute to soil formation.</summary><div><p>Vegetation provides organic matter, plant roots bind soil, and microorganisms facilitate decomposition and nutrient cycling.</p></div></details>
+                        <details><summary>16. Describe the influence of relief (topography) on soil formation.</summary><div><p>Steep slopes often have thin soils due to high erosion rates, while valley bottoms accumulate deep soils through deposition.</p></div></details>
+                        <details><summary>17. What role does the parent material play in soil characteristics?</summary><div><p>It determines the soil's initial mineral composition, texture, and chemical properties.</p></div></details>
+                        <details><summary>18. Explain why "time" is a crucial factor in soil formation.</summary><div><p>Soil formation is a very slow process; the longer a soil has been forming, the more developed and mature it will be, with distinct horizons.</p></div></details>
+                        <details><summary>19. Define physical (mechanical) disintegration of rock.</summary><div><p>It is the breakdown of rock into smaller particles without altering its chemical composition, dominant in areas with large temperature fluctuations.</p></div></details>
+                        <details><summary>20. Describe the process of exfoliation and in which regions it is common.</summary><div><p>It's the peeling of outer rock layers due to differential expansion and contraction from temperature changes, common in arid regions.</p></div></details>
+                        <details><summary>21. Explain block and granular disintegration.</summary><div><p>Block disintegration is when well-jointed rocks break into large blocks. Granular disintegration is when rocks with different minerals break apart grain by grain.</p></div></details>
+                        <details><summary>22. How does frost action break down rocks in cold regions?</summary><div><p>Water seeps into cracks, freezes and expands (by about 9%), exerting pressure that shatters the rock.</p></div></details>
+                        <details><summary>23. Define chemical decomposition and where it is dominant.</summary><div><p>The alteration of a rock's mineral composition, forming new, weaker minerals. It is dominant in warm, humid climates.</p></div></details>
+                        <details><summary>24. Describe the hydrolysis process and its importance in Kenya.</summary><div><p>A reaction where water ions displace mineral ions. The hydrolysis of feldspar (from volcanic rocks) to form clay is fundamental to the creation of many of Kenya's clay-rich soils.</p></div></details>
+                        <details><summary>25. Explain carbonation and its effect on rocks like limestone.</summary><div><p>Weak carbonic acid in rainwater dissolves calcium carbonate in limestone, forming soluble calcium bicarbonate that is washed away.</p></div></details>
+                        <details><summary>26. What is oxidation, and what visual clue does it provide?</summary><div><p>The reaction of minerals with oxygen, which gives iron-rich tropical soils their characteristic reddish-brown color (rust).</p></div></details>
+                        <details><summary>27. Define soil texture and state its influence.</summary><div><p>Soil texture is the proportion of sand, silt, and clay particles, which influences water retention, aeration, and root penetration.</p></div></details>
+                        <details><summary>28. Describe soil structure and list two common structures.</summary><div><p>Soil structure is how soil particles are grouped into "peds". Common structures include granular and blocky.</p></div></details>
+                        <details><summary>29. What is soil acidity (pH) and why is it critical?</summary><div><p>It is a measure of the soil's acidity or alkalinity, critical because it affects the availability of plant nutrients and the activity of microorganisms.</p></div></details>
+                        <details><summary>30. How does soil color provide clues about its composition?</summary><div><p>Dark colors suggest high humus content, red/yellow indicates iron oxides (good drainage), and grey/mottled colors suggest poor drainage.</p></div></details>
+                        <details><summary>31. Define soil porosity and its importance.</summary><div><p>The total volume of pore space within a soil, which determines how much water and air it can hold.</p></div></details>
+                        <details><summary>32. Define soil permeability and give an example of a permeable soil type.</summary><div><p>The ease with which water can move through the soil. Sandy soils are highly permeable.</p></div></details>
+                        <details><summary>33. What factors influence soil depth?</summary><div><p>The rate of weathering, topography, and the length of time the soil has been forming.</p></div></details>
+                        <details><summary>34. List and briefly describe the five horizons of a typical soil profile.</summary><div><p>O (Organic litter), A (Topsoil, zone of eluviation), B (Subsoil, zone of illuviation), C (Parent material/regolith), R (Bedrock).</p></div></details>
+                        <details><summary>35. Identify the "zone of eluviation" and "zone of illuviation".</summary><div><p>The A Horizon is the zone of eluviation. The B Horizon is the zone of illuviation.</p></div></details>
+                        <details><summary>36. Define a soil catena.</summary><div><p>The sequence of different soil types found along a slope, derived from the same parent material but varying due to relief and drainage.</p></div></details>
+                        <details><summary>37. Describe the soil variation in a typical soil catena.</summary><div><p>Hilltops have well-drained soils, steep slopes have thin soils, gentle slopes have deeper soils, and valley bottoms have deep, often waterlogged soils.</p></div></details>
+                        <details><summary>38. How do relief and drainage cause variation in a catena?</summary><div><p>Relief affects erosion and deposition rates. Drainage influences water content and leaching, leading to different soil properties at different points on the slope.</p></div></details>
+                        <details><summary>39. Define soil degeneration.</summary><div><p>The decline in soil quality and usefulness due to changes in its physical, chemical, or biological properties.</p></div></details>
+                        <details><summary>40. Describe the three main forms of soil degeneration.</summary><div><p>Physical (loss of structure), Chemical (nutrient depletion/pH change), and Biological (loss of humus and organisms).</p></div></details>
+                        <details><summary>41. What is soil erosion?</summary><div><p>The physical removal and transport of topsoil by agents like water and wind.</p></div></details>
+                        <details><summary>42. List and describe the four types of water erosion.</summary><div><p>Splash (raindrop impact), Sheet (uniform removal), Rill (small channels), and Gully (large channels).</p></div></details>
+                        <details><summary>43. Explain wind erosion and where it is most common.</summary><div><p>The removal of fine soil particles by wind, most common in arid and semi-arid regions with sparse vegetation.</p></div></details>
+                        <details><summary>44. State three adverse effects of soil erosion.</summary><div><p>Loss of fertile topsoil, reduced agricultural productivity, and sedimentation of water bodies.</p></div></details>
+                        <details><summary>45. Provide two statistics illustrating soil degradation in Kenya.</summary><div><p>1. Croplands lose an average of 26 tons of soil per hectare annually to water erosion. 2. 75% of Kenyan soils have organic carbon levels below the sustainable threshold.</p></div></details>
+                        <details><summary>46. What percentage of Kenyan soils have low organic carbon?</summary><div><p>75% of Kenyan soils have organic carbon levels below the sustainable threshold.</p></div></details>
+                        <details><summary>47. List two natural and two human causes of soil degradation in Kenya.</summary><div><p>Natural: Erratic/intense rainfall. Human: Deforestation for fuel and overgrazing.</p></div></details>
+                        <details><summary>48. How are soils classified into major orders?</summary><div><p>Based on their properties and the dominant factors in their formation.</p></div></details>
+                        <details><summary>49. Describe Zonal soils and provide two examples.</summary><div><p>Mature soils with well-developed profiles influenced by climate and vegetation. Examples: Latosols, Vertisols.</p></div></details>
+                        <details><summary>50. Describe Intrazonal soils and provide two examples.</summary><div><p>Soils influenced more by local conditions than climate. Examples: Hydromorphic soils, Andosols.</p></div></details>
+                        <details><summary>51. Describe Azonal soils and provide two examples.</summary><div><p>Young, immature soils with no well-developed profile. Examples: Lithosols, Alluvial soils.</p></div></details>
+                        <details><summary>52. Outline the key properties of Nitosols.</summary><div><p>Deep, well-drained, red/brown clays with a good, nutty structure, but are often acidic.</p></div></details>
+                        <details><summary>53. Where are Nitosols found in Kenya and what is their significance?</summary><div><p>In the highlands (Central Kenya, Mt. Kenya). They are highly productive and support Kenya's key cash crops like coffee and tea.</p></div></details>
+                        <details><summary>54. Characterize Vertisols and their challenges.</summary><div><p>Heavy, dark cracking clays that shrink when dry and swell when wet. They are hard to till and have poor drainage.</p></div></details>
+                        <details><summary>55. What crops are suited for Vertisols in Kenya?</summary><div><p>Paddy rice (e.g., in Mwea), cotton, onions, and sunflowers.</p></div></details>
+                        <details><summary>56. Explain the properties of Andosols and their phosphorus issue.</summary><div><p>Young, fertile volcanic soils that are light and porous with high water retention, but they have a strong tendency to "fix" or bind phosphorus, making it unavailable to plants.</p></div></details>
+                        <details><summary>57. Where are Andosols found and what industry do they support?</summary><div><p>In Kenya's Great Rift Valley and on volcanic slopes. They are the foundation of the horticulture industry (flowers, vegetables).</p></div></details>
+                        <details><summary>58. Describe the properties of Ferralsols.</summary><div><p>Very old, deeply weathered red/yellow soils, rich in iron/aluminium oxides. They have good physical structure but extremely low natural fertility.</p></div></details>
+                        <details><summary>59. What are the constraints and management needs of Ferralsols?</summary><div><p>Their main constraint is extremely low nutrient levels. Management must focus on building organic matter and applying a balanced range of fertilizers.</p></div></details>
+                        <details><summary>60. List five ways soils are indispensable.</summary><div><p>1. Agriculture/food production. 2. Ecosystem support/habitat. 3. Water filtration. 4. Source of construction materials. 5. Anchoring plants.</p></div></details>
+                        <details><summary>61. What is the goal of soil management and conservation?</summary><div><p>To protect soil from degradation and ensure this vital resource continues to support life for generations to come.</p></div></details>
+                        <details><summary>62. Explain two principles of managing soil fertility.</summary><div><p>1. Managing acidity/alkalinity (e.g., with lime or gypsum). 2. Nutrient replenishment (e.g., with manure and fertilizers).</p></div></details>
+                        <details><summary>63. How is agricultural lime used?</summary><div><p>It is applied to acidic soils to raise the pH and improve nutrient availability.</p></div></details>
+                        <details><summary>64. How can saline and sodic soils be managed?</summary><div><p>Saline soils can be flushed with good quality water. Sodic soils can be treated with gypsum to replace harmful sodium ions.</p></div></details>
+                        <details><summary>65. List four agronomic measures for erosion control.</summary><div><p>Cover cropping, mulching, contour ploughing, and agroforestry.</p></div></details>
+                        <details><summary>66. Explain the benefits of mulching.</summary><div><p>It protects soil from splash erosion, reduces evaporation, suppresses weeds, and adds organic matter.</p></div></details>
+                        <details><summary>67. Describe the "Fanya Juu" terracing system.</summary><div><p>An indigenous Kenyan technique where a trench is dug along a contour and the soil is thrown upslope to form a bund, which gradually forms a level bench, conserving soil and water.</p></div></details>
+                        <details><summary>68. Explain the "Zai Pit" technology.</summary><div><p>A technique used in arid lands where small pits are dug and filled with organic matter to capture water and concentrate fertility for planting crops.</p></div></details>
+                        <details><summary>69. Name two engineering measures for erosion control.</summary><div><p>Constructing terraces and check dams.</p></div></details>
+                        <details><summary>70. What is "sustainable land use" in soil conservation?</summary><div><p>Practices that ensure the long-term health and productivity of the soil, such as afforestation and managed grazing.</p></div></details>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Navigation Buttons -->
+            <footer class="bg-white p-4 flex justify-between items-center border-t">
+                <button id="prev-btn" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-lg transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
+                    Previous
+                </button>
+                <button id="next-btn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
+                    Next
+                </button>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- ELEMENTS ---
+            const sidebar = document.getElementById('sidebar');
+            const hamburgerMenu = document.getElementById('hamburger-menu');
+            const sideMenu = document.getElementById('side-menu').querySelector('ul');
+            const contentArea = document.getElementById('content-area');
+            const slides = document.querySelectorAll('.slide');
+            const breadcrumbs = document.getElementById('breadcrumbs');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+
+            let currentSlideIndex = 0;
+
+            // --- FUNCTIONS ---
+
+            /**
+             * Populates the side navigation menu based on the data-title attribute of each slide.
+             */
+            function populateNavMenu() {
+                slides.forEach((slide, index) => {
+                    const title = slide.getAttribute('data-title');
+                    const listItem = document.createElement('li');
+                    listItem.innerHTML = `<a href="#" class="block py-2 px-4 rounded hover:bg-gray-700 transition-colors duration-200" data-index="${index}">${title}</a>`;
+                    sideMenu.appendChild(listItem);
+                });
+            }
+            
+            /**
+             * Shows a specific slide by its index and hides others.
+             * @param {number} index - The index of the slide to show.
+             */
+            function showSlide(index) {
+                // Hide all slides
+                slides.forEach(slide => slide.classList.add('hidden'));
+
+                // Show the target slide
+                if (slides[index]) {
+                    slides[index].classList.remove('hidden');
+                    currentSlideIndex = index;
+                    updateUI();
+                }
+            }
+
+            /**
+             * Updates the UI elements: breadcrumbs, navigation buttons, and active menu item.
+             */
+            function updateUI() {
+                const currentTitle = slides[currentSlideIndex].getAttribute('data-title');
+                
+                // Update Breadcrumbs
+                breadcrumbs.textContent = `Home / ${currentTitle}`;
+
+                // Update Side Menu Active State
+                document.querySelectorAll('#side-menu a').forEach(a => {
+                    a.classList.remove('bg-gray-700', 'font-bold');
+                    if (parseInt(a.getAttribute('data-index')) === currentSlideIndex) {
+                        a.classList.add('bg-gray-700', 'font-bold');
+                    }
+                });
+
+                // Update Prev/Next Buttons State
+                prevBtn.disabled = currentSlideIndex === 0;
+                nextBtn.disabled = currentSlideIndex === slides.length - 1;
+                
+                // Scroll content to top on slide change
+                contentArea.scrollTop = 0;
+            }
+
+            // --- EVENT LISTENERS ---
+
+            // Hamburger menu toggle
+            hamburgerMenu.addEventListener('click', () => {
+                sidebar.classList.toggle('hidden');
+            });
+
+            // Side menu navigation
+            sideMenu.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (e.target.tagName === 'A') {
+                    const index = parseInt(e.target.getAttribute('data-index'));
+                    showSlide(index);
+                    // Hide sidebar on mobile after clicking a link
+                    if (window.innerWidth < 768) {
+                        sidebar.classList.add('hidden');
+                    }
+                }
+            });
+
+            // "Next" button
+            nextBtn.addEventListener('click', () => {
+                if (currentSlideIndex < slides.length - 1) {
+                    showSlide(currentSlideIndex + 1);
+                }
+            });
+
+            // "Previous" button
+            prevBtn.addEventListener('click', () => {
+                if (currentSlideIndex > 0) {
+                    showSlide(currentSlideIndex - 1);
+                }
+            });
+
+            // --- INITIALIZATION ---
+            populateNavMenu();
+            showSlide(0); // Show the first slide initially
+        });
+    </script>
+</body>
+</html>
