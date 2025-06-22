@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Guide to Agriculture</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- MathJax CDN -->
+    <script>
+        MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    </script>
+
+    <style>
+        /* Custom styles for a fixed, non-scrolling layout */
+        html, body {
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Custom scrollbar for webkit browsers */
+      .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+
+      .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+
+      .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* Styling for the details/summary accordion */
+        details > summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 0.75rem;
+            background-color: #f3f4f6;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        details > summary:hover {
+            background-color: #e5e7eb;
+        }
+
+        details[open] > summary {
+            background-color: #d1d5db;
+        }
+        
+        details > div {
+            padding: 1rem;
+            border: 1px solid #d1d5db;
+            border-top: none;
+            border-radius: 0 0 0.375rem 0.375rem;
+        }
+
+        /* Minor style adjustments for content */
+      .slide h2 {
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 0.5rem;
+        }
+      .slide h3 {
+            color: #1f2937;
+        }
+      .slide h4 {
+            color: #374151;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <div class="flex h-screen">
+
+        <aside id="sidebar" class="bg-gray-800 text-white w-64 flex-shrink-0 custom-scrollbar overflow-y-auto hidden md:block transition-all duration-300">
+            <div class="p-4">
+                <h1 class="text-xl font-bold">Agriculture</h1>
+                <nav id="side-menu" class="mt-8">
+                    <ul>
+                        </ul>
+                </nav>
+            </div>
+        </aside>
+
+        <main class="flex-1 flex flex-col">
+            <header class="bg-white shadow-md p-4 flex items-center justify-between">
+                <button id="hamburger-menu" class="md:hidden text-gray-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+                <div id="breadcrumbs" class="text-sm text-gray-500 font-medium">
+                    </div>
+            </header>
+
+            <div id="content-area" class="flex-1 p-6 lg:p-8 custom-scrollbar overflow-y-auto bg-white">
+                
+                <div class="slide" data-title="Introduction">
+                    <h2 class="text-2xl font-bold mb-4">Introduction to Agriculture</h2>
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Definition of Agriculture</h3>
+                    <p class="mb-4">Agriculture is defined as the science and art of growing crops and rearing livestock. It is a fundamental human activity that forms the backbone of economies and societies worldwide, providing food, raw materials, and employment.</p>
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Importance of Agriculture in Kenya</h3>
+                    <ul class="list-disc list-inside space-y-3 mb-4">
+                        <li><strong>Employment:</strong> Provides employment opportunities for a significant portion of the population, both directly on farms (e.g., weeding, harvesting) and indirectly in related industries (e.g., processing, transport).</li>
+                        <li><strong>Foreign Exchange:</strong> Earns the country vital foreign exchange through the export of cash crops like tea, coffee, and horticultural products, which is used to finance imports and development projects.</li>
+                        <li><strong>Industrial Raw Materials:</strong> Supplies raw materials for a wide range of industries, including food processing (e.g., sugar, flour), textiles (cotton), and manufacturing (e.g., vegetable oils).</li>
+                        <li><strong>Infrastructure Development:</strong> The need to transport agricultural goods from farms to markets stimulates the development of infrastructure such as roads, railways, and storage facilities.</li>
+                        <li><strong>Income Generation:</strong> Provides income for farmers, raising their living standards, promoting rural development, and reducing poverty.</li>
+                        <li><strong>Market for Industries:</strong> Creates a ready market for industrial products, including farm inputs like fertilizers, pesticides, machinery (tractors, combine harvesters), and packaging materials.</li>
+                         <li><strong>Food Security:</strong> Ensures the nation has a stable supply of food, reducing reliance on imports and enhancing national sovereignty.</li>
+                    </ul>
+                </div>
+
+                <div class="slide hidden" data-title="Factors Influencing Agriculture">
+                    <h2 class="text-2xl font-bold mb-4">Factors Influencing Agriculture</h2>
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Climatic Factors</h3>
+                    <ul class="list-disc list-inside space-y-2 mb-4">
+                        <li><strong>Rainfall:</strong> Amount and reliability are crucial. High rainfall (1300-1800mm) is needed for tea, while moderate rainfall (635-1145mm) suits maize.</li>
+                        <li><strong>Temperature:</strong> Affects crop growth rates, fruit ripening, photosynthesis, and transpiration. Tea requires cool to warm temperatures (18-24°C), while sugarcane prefers higher temperatures (20-27°C).</li>
+                         <li><strong>Humidity:</strong> High relative humidity is essential for certain tropical crops like cocoa and oil palm.</li>
+                    </ul>
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Topographic (Relief) Factors</h3>
+                    <ul class="list-disc list-inside space-y-2 mb-4">
+                        <li><strong>Altitude:</strong> Different crops have optimal altitude ranges. Tea and coffee thrive in the Kenyan highlands (1000-2200m), while rice, cotton, and sugarcane are lowland crops.</li>
+                        <li><strong>Slope (Gradient):</strong> Lowlands and gently rolling terrain are ideal as they facilitate cultivation and mechanization. Steep slopes are prone to soil erosion and are difficult to farm.</li>
+                    </ul>
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Edaphic (Soil) Factors</h3>
+                    <p class="mb-4">Soil type, fertility, depth, and drainage are critical. Different crops require specific soil types. For instance, tea grows best in deep, fertile, acidic volcanic soils, while sugarcane thrives in alluvial or black cotton soils.</p>
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Biotic Factors</h3>
+                    <p class="mb-4">The presence or absence of beneficial organisms (like pollinators) and harmful ones (like parasitic plants, insect pests, and diseases) significantly influences the type of agriculture that can be successfully practiced in an area.</p>
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Social and Economic Factors</h3>
+                    <ul class="list-disc list-inside space-y-2 mb-4">
+                        <li><strong>Social Factors:</strong> Cultural traditions, land ownership systems (e.g., individual vs. communal), religion (e.g., prohibition of pig farming in some cultures), and traditional diets all influence farming practices and crop choices.</li>
+                        <li><strong>Economic Factors:</strong> These include the operational costs (farm inputs), marketing expenses, price fluctuations in local and global markets, government policies (such as subsidies and taxes), and international trade agreements that set quotas or tariffs.</li>
+                    </ul>
+                </div>
+
+                <div class="slide hidden" data-title="Types of Agriculture">
+                    <h2 class="text-2xl font-bold mb-4">Types of Agriculture</h2>
+                    <ul class="list-disc list-inside space-y-4">
+                        <li><strong>Simple Subsistence Farming (Shifting Cultivation):</strong> This is the growing of food crops primarily for the family's needs. It is characterized by the "slash and burn" method of clearing virgin forests, the use of simple tools like hoes, mixed cropping (planting multiple crops in one plot), and field rotation. As population pressure increases and land tenure systems change, this practice is becoming less common.</li>
+                        <li><strong>Sedentary Subsistence Agriculture:</strong> In this system, farmers remain permanently in one location. They practice crop rotation to maintain soil fertility and may combine food crop cultivation with cash crops and the rearing of animals for supplementary food and income.</li>
+                        <li><strong>Intensive Subsistence Farming:</strong> Characterized by high energy input (labor and resources) per unit area to sustain a large population. It is often dominated by a single staple crop, such as wet paddy rice in Asia or other food crops like wheat and maize in other densely populated regions.</li>
+                        <li><strong>Plantation Farming:</strong> This is a specialized, large-scale commercial cultivation of a single cash crop (monoculture) on extensive estates. It is characterized by scientific management, high capital investment, use of hired labor, and production mainly for export.</li>
+                        <li><strong>Extensive Mechanized Grain Cultivation:</strong> This involves large-scale, highly mechanized cultivation of grains, particularly wheat. It is common in temperate grasslands like the prairies of Canada and is also practiced in parts of Kenya such as Narok and Uasin Gishu.</li>
+                        <li><strong>Mediterranean Agriculture:</strong> An intensive and highly specialized form of farming found in regions with Mediterranean climates. It typically combines orchard farming (citrus fruits, olives), viticulture (grape cultivation for wine), and the cultivation of cereals and vegetables.</li>
+                        <li><strong>Mixed Farming:</strong> This is an integrated system that combines the growing of crops and the rearing of livestock on the same farm, creating a symbiotic relationship where animal manure fertilizes the crops, and crop residues can be used as animal feed.</li>
+                    </ul>
+                </div>
+
+                <div class="slide hidden" data-title="Crop Farming in Kenya">
+                    <h2 class="text-2xl font-bold mb-4">Major Cash Crops in Kenya</h2>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Tea Farming</h3>
+                    <ul class="list-disc list-inside space-y-2 mb-4">
+                        <li><strong>Growing Areas:</strong> Concentrated in the Western Highlands (Kericho, Nandi, Kakamega) and Eastern Highlands (Nyeri, Murang'a, Kirinyaga, Embu, Meru).</li>
+                        <li><strong>Ideal Conditions:</strong> High rainfall (1300-1800mm) well-distributed, warm temperatures (18-24°C), high altitude (1000-2200m), and deep, fertile, well-drained acidic volcanic soils.</li>
+                        <li><strong>Processing Steps:</strong> Involves withering (reducing moisture), rolling (crushing leaves), fermentation (developing flavor and color), drying (halting fermentation), and grading (sorting by size).</li>
+                        <li><strong>Marketing:</strong> Primarily handled by the Kenya Tea Development Authority (KTDA), which assists small-scale farmers with inputs, collection, and marketing.</li>
+                        <li><strong>Challenges:</strong> Pests (black tea thrip) and diseases (root rot), poor feeder roads delaying transport, climatic hazards like hailstorms, and fluctuations in world market prices.</li>
+                    </ul>
+                    <div class="w-full h-48 bg-gray-200 flex items-center justify-center rounded-lg my-4"><span class="text-gray-500">Diagram Placeholder: Tea Plantation on a Highland Slope</span></div>
+
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Sugarcane Farming</h3>
+                    <ul class="list-disc list-inside space-y-2 mb-4">
+                        <li><strong>Growing Areas:</strong> Dominated by the Western Kenya Sugar Belt (Mumias, Nzoia) and the Nyanza Sugar Belt (Chemelil, Awendo, Muhoroni), with some cultivation at the coast (Ramisi).</li>
+                        <li><strong>Ideal Conditions:</strong> High temperatures (20-27°C), high and well-distributed rainfall (1200-1500mm), and deep, fertile alluvial or black cotton soils on gently sloping lowlands.</li>
+                        <li><strong>Processing Steps:</strong> The harvested cane is crushed to extract raw juice, which is then filtered, boiled with lime to crystallize, and refined to produce sugar. Important by-products include bagasse (used as fuel) and molasses (used for industrial alcohol).</li>
+                        <li><strong>Challenges:</strong> Stiff competition from cheaper sugar imports, pests and diseases, delayed payments to farmers by factories, and occasional fire outbreaks destroying mature cane.</li>
+                    </ul>
+                     <div class="w-full h-48 bg-gray-200 flex items-center justify-center rounded-lg my-4"><span class="text-gray-500">Diagram Placeholder: Sugarcane Harvesting</span></div>
+
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Maize Growing</h3>
+                    <ul class="list-disc list-inside space-y-2 mb-4">
+                        <li><strong>Growing Areas:</strong> Grown in nearly all parts of Kenya due to its tolerance for a wide range of conditions. The main commercial production zones are in the "maize basket" counties of Trans-Nzoia, Nakuru, and Bungoma.</li>
+                        <li><strong>Ideal Conditions:</strong> Prefers moderate temperatures (15-27°C) and rainfall (635-1145mm) on deep, nitrogen-rich soils.</li>
+                        <li><strong>Significance:</strong> It is the staple food for the majority of Kenyans. It also provides animal feed and raw materials for industries producing cooking oil and starch.</li>
+                        <li><strong>Challenges:</strong> Pests (stalk borers) and diseases (leaf rust, maize streak virus), price fluctuations due to market dynamics and imports, high costs of farm inputs (seeds, fertilizers), and poor marketing channels often involving exploitative middlemen.</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Coffee Farming</h3>
+                    <ul class="list-disc list-inside space-y-2 mb-4">
+                        <li><strong>Growing Areas:</strong> The highlands of Central Kenya (Nyeri, Murang'a, Kirinyaga, Kiambu), parts of the Rift Valley, Western Kenya (Bungoma, Vihiga), and Eastern Kenya (Meru, Embu).</li>
+                        <li><strong>Ideal Conditions:</strong> Cool to hot climates (15-30°C), high rainfall (1000-2000mm) with a dry season for ripening, deep, fertile, well-drained volcanic soils, and high altitudes (610-2000m).</li>
+                        <li><strong>Challenges:</strong> Pests and diseases (Coffee Berry Disease, Leaf Rust), price fluctuations on the world market, high costs of farm inputs, and competition from other crops.</li>
+                    </ul>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Wheat Farming</h3>
+                    <ul class="list-disc list-inside space-y-2 mb-4">
+                        <li><strong>Growing Areas:</strong> Large-scale farms in Nakuru, Narok, Uasin Gishu, and Laikipia counties.</li>
+                        <li><strong>Ideal Conditions:</strong> Moderate rainfall (500-1270mm), warm temperatures (15-20°C) with a dry, sunny period for harvesting, deep fertile volcanic soils, and extensive, gently rolling landscapes that allow for mechanization.</li>
+                        <li><strong>Challenges:</strong> Pests (cereal weevils, quelea birds), diseases (stem rust), price fluctuations, and high costs of machinery and inputs.</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Horticulture</h3>
+                    <ul class="list-disc list-inside space-y-2 mb-4">
+                        <li><strong>Products:</strong> Includes flowers (roses, carnations), vegetables (French beans, tomatoes), and fruits (pineapples, avocados).</li>
+                        <li><strong>Growing Areas:</strong> Concentrated around areas with good infrastructure and access to water, such as Naivasha, Kiambu, and parts of Eastern Kenya.</li>
+                        <li><strong>Ideal Conditions:</strong> Requires fertile soils, reliable water supply (often through irrigation), and proximity to transport hubs (like airports) due to the perishable nature of the products.</li>
+                        <li><strong>Challenges:</strong> High capital investment (especially for greenhouses), pests and diseases, high freight charges for export, and strict quality standards required by international markets.</li>
+                    </ul>
+                </div>
+
+                <div class="slide hidden" data-title="Livestock Farming">
+                    <h2 class="text-2xl font-bold mb-4">Livestock Farming in Kenya</h2>
+
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Dairy Farming</h3>
+                    <ul class="list-disc list-inside space-y-2 mb-4">
+                        <li><strong>Areas:</strong> Concentrated in the cool and wet highlands of Central Kenya and the Rift Valley (e.g., Kiambu, Nyeri, Nakuru, Laikipia).</li>
+                        <li><strong>Ideal Conditions:</strong> Cool temperatures (15-18°C) are ideal for high-quality exotic breeds (Friesian, Ayrshire), reliable rainfall ensures year-round pasture, and fertile volcanic soils support nutritious grass and fodder crops.</li>
+                        <li><strong>Challenges:</strong> Pests and diseases (e.g., East Coast Fever), high cost of commercial feeds, poor management of some dairy cooperatives leading to delayed payments, and competition from milk imports.</li>
+                    </ul>
+                    <div class="w-full h-48 bg-gray-200 flex items-center justify-center rounded-lg my-4"><span class="text-gray-500">Diagram Placeholder: Dairy Cattle Grazing</span></div>
+
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Beef Farming</h3>
+                    <ul class="list-disc list-inside space-y-2 mb-4">
+                        <li><strong>Areas:</strong> Practiced in both pastoralist areas (ASALs) and on commercial ranches in counties like Laikipia, Nakuru, Kajiado, and Kwale.</li>
+                        <li><strong>Ideal Conditions:</strong> Extensive flatlands with natural savanna grassland, moderate rainfall (around 750mm) to support pasture, and moderate temperatures (up to 28°C) suitable for breeds like Boran and Sahiwal.</li>
+                        <li><strong>Challenges:</strong> Unreliable rainfall leading to pasture and water shortages, poor quality of natural pasture, pests (tsetse flies) and diseases, and competition for rangeland with wildlife.</li>
+                    </ul>
+                </div>
+                
+                <div class="slide hidden" data-title="Comparative Studies">
+                    <h2 class="text-2xl font-bold mb-4">Comparative Agricultural Studies</h2>
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Dairy Farming: Kenya vs. Denmark</h3>
+                     <ul class="list-disc list-inside space-y-2 mb-4">
+                        <li><strong>Similarities:</strong> Both countries rear similar exotic breeds (Friesian, Ayrshire), use Artificial Insemination (AI) for breeding, and have cooperative societies for milk collection and marketing.</li>
+                        <li><strong>Differences:</strong> Denmark's industry is highly mechanized, specialized, and export-oriented, relying on fodder crops for feed. Kenya's is less mechanized, often part of mixed farming, relies more on natural pasture, and primarily serves the local market. Danish cooperatives are also more developed and better funded.</li>
+                    </ul>
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Beef Farming: Kenya vs. Argentina</h3>
+                     <ul class="list-disc list-inside space-y-2 mb-4">
+                        <li><strong>Similarities:</strong> Both countries practice beef farming on extensive ranches and rear some similar exotic breeds like the Hereford.</li>
+                        <li><strong>Differences:</strong> Argentina is a world-leading exporter with vast, fertile pampas grasslands that support high-quality pasture. Its industry is highly organized with large-scale ranches (estancias) and advanced infrastructure. Kenya's beef sector is less developed, faces challenges from climate and pasture quality, and is more focused on the domestic market.</li>
+                    </ul>
+                </div>
+                
+                <div class="slide hidden" data-title="Revision Questions">
+                    <h2 class="text-2xl font-bold mb-4">Revision Questions</h2>
+                    <div class="space-y-4">
+                        <p class="text-center font-semibold p-4 bg-gray-100 rounded-lg">Expand the sections below to see the answers.</p>
+                        <details><summary>1. Define agriculture.</summary><div><p>Agriculture is defined as the science and art of growing crops and rearing livestock.</p></div></details>
+                        <details><summary>2. List three ways agriculture is important to Kenya's economy.</summary><div><p>1. It provides employment opportunities. 2. It earns the country foreign exchange through exports. 3. It supplies raw materials for industries.</p></div></details>
+                        <details><summary>3. Explain how topography influences agriculture.</summary><div><p>Altitude affects which crops can be grown (e.g., tea at high altitudes). The slope of the land is also important; gently rolling terrain is ideal for mechanization, while steep slopes are difficult to cultivate and prone to erosion.</p></div></details>
+                        <details><summary>4. What is the difference between simple subsistence farming and sedentary subsistence agriculture?</summary><div><p>Simple subsistence farming involves shifting cultivation, where plots are abandoned when soil fertility declines. Sedentary subsistence agriculture involves farmers cultivating the same piece of land permanently, often using methods like crop rotation.</p></div></details>
+                        <details><summary>5. Name two main tea growing regions in Kenya.</summary><div><p>The Western Highlands (e.g., Kericho) and the Eastern Highlands (e.g., Nyeri).</p></div></details>
+                        <details><summary>6. List two climatic conditions necessary for growing tea.</summary><div><p>High and well-distributed rainfall (1300-1800mm) and warm temperatures (18-24°C).</p></div></details>
+                        <details><summary>7. What is the role of the KTDA in Kenya's tea industry?</summary><div><p>The Kenya Tea Development Authority (KTDA) assists small-scale farmers with inputs, collection of green leaf, processing, and marketing of the final product.</p></div></details>
+                        <details><summary>8. Name a by-product of sugarcane processing and its use.</summary><div><p>Bagasse (cane residue) is used as fuel in the sugar factories. Molasses is used to process industrial alcohol.</p></div></details>
+                        <details><summary>9. Why is maize considered Kenya's staple food crop?</summary><div><p>Because it is grown in almost all parts of the country and forms the primary food source for the majority of the population.</p></div></details>
+                        <details><summary>10. What is a "fazenda" in the context of Brazilian agriculture?</summary><div><p>A fazenda is a large coffee plantation or estate in Brazil.</p></div></details>
+                        <details><summary>11. Why is Canada a leading global exporter of wheat?</summary><div><p>Due to its vast, fertile prairies, highly mechanized farming practices, efficient transport systems, and strong government support.</p></div></details>
+                        <details><summary>12. What is a major advantage the Netherlands has in horticulture over Kenya?</summary><div><p>Its central location within Europe gives it easy and cheaper access to a large, high-income market.</p></div></details>
+                        <details><summary>13. Define transhumance.</summary><div><p>The seasonal movement of pastoralists and their livestock in search of water and pasture.</p></div></details>
+                        <details><summary>14. Name two exotic breeds of dairy cattle reared in Kenya.</summary><div><p>Friesian/Holstein and Ayrshire. (Guernsey and Jersey are also correct).</p></div></details>
+                        <details><summary>15. What are the "pampas" in Argentina?</summary><div><p>Vast, fertile temperate grasslands that are ideal for beef cattle ranching.</p></div></details>
+                        <details><summary>16. What is the main characteristic of plantation farming?</summary><div><p>It is the specialized commercial cultivation of a single cash crop (monoculture) on extensive tracts of land.</p></div></details>
+                        <details><summary>17. Name a major challenge facing sugarcane farmers in Kenya.</summary><div><p>Stiff competition from cheaper sugar imports, pests and diseases, or delayed payments from factories.</p></div></details>
+                        <details><summary>18. What is the main difference in mechanization between wheat farming in Kenya and Canada?</summary><div><p>Wheat farming in Canada is heavily mechanized from land preparation to harvesting, while in Kenya, mechanization is less widespread.</p></div></details>
+                        <details><summary>19. What is a key social factor affecting agriculture?</summary><div><p>Land tenure systems, which can lead to the fragmentation of land into uneconomical plots.</p></div></details>
+                        <details><summary>20. Describe one step in the processing of tea leaves.</summary><div><p>Withering: reducing the moisture content of the leaves by spreading them on wire trays and blowing warm air over them.</p></div></details>
+                        <details><summary>21. What is mixed farming?</summary><div><p>An integrated system that combines the growing of crops and the rearing of livestock on the same farm.</p></div></details>
+                        <details><summary>22. Name two counties in Kenya where pyrethrum is grown.</summary><div><p>Nakuru and Kisii (or Kiambu, Nyandarua).</p></div></details>
+                        <details><summary>23. What is a major problem facing pastoralists in Kenya's ASALs?</summary><div><p>Frequent and prolonged droughts leading to scarcity of water and pasture.</p></div></details>
+                        <details><summary>24. How does the government of Kenya support beef farming?</summary><div><p>By establishing demonstration ranches, constructing cattle dips, and encouraging group ranching schemes.</p></div></details>
+                        <details><summary>25. What is viticulture?</summary><div><p>It is a component of Mediterranean agriculture that involves the cultivation of grapes for wine making.</p></div></details>
+                        <details><summary>26. Why are gently sloping lowlands ideal for sugarcane cultivation?</summary><div><p>They allow for the use of machinery (mechanization) and provide good drainage.</p></div></details>
+                        <details><summary>27. What is a major difference in the scale of coffee farming between Kenya and Brazil?</summary><div><p>In Kenya, coffee is grown mainly on a small scale, often alongside other crops, while in Brazil, it is grown on vast, large-scale plantations.</p></div></details>
+                        <details><summary>28. Name one problem that affects both wheat farmers in Kenya and Canada.</summary><div><p>Both face challenges from pests and diseases (like stem rust) and price fluctuations in the market.</p></div></details>
+                        <details><summary>29. What is floriculture?</summary><div><p>Floriculture is the practice of growing flowers, which is a major component of Kenya's horticultural sector.</p></div></details>
+                        <details><summary>30. Why are animals kept indoors during winter in Denmark's dairy farming system?</summary><div><p>To protect them from the harsh cold weather. During this time, they are fed on stored fodder crops like silage.</p></div></details>
+                        <details><summary>31. What is a key reason for the phasing out of shifting cultivation?</summary><div><p>Increasing population pressure on land, which makes leaving land fallow for long periods impractical.</p></div></details>
+                        <details><summary>32. Name two uses of maize stalks and cobs.</summary><div><p>They are used as domestic fuel and as animal feeds.</p></div></details>
+                        <details><summary>33. What is the main difference in market orientation for dairy products between Kenya and Denmark?</summary><div><p>In Kenya, dairy products are mainly for local consumption, while in Denmark, they are mainly for export.</p></div></details>
+                        <details><summary>34. Describe one characteristic of extensive mechanized grain cultivation.</summary><div><p>Farming processes are entirely mechanized, from field preparation to harvesting, using machinery like tractors and combine harvesters.</p></div></details>
+                        <details><summary>35. What is a major challenge for Kenya's horticultural exports to Europe?</summary><div><p>High freight (air transport) charges, which increase costs and reduce profitability.</p></div></details>
+                        <details><summary>36. Name two indigenous beef cattle breeds in Kenya.</summary><div><p>The Zebu and the Boran.</p></div></details>
+                        <details><summary>37. Why is a dry, sunny period important for sugarcane harvesting?</summary><div><p>It helps to increase the sucrose concentration in the cane, leading to higher sugar yields.</p></div></details>
+                        <details><summary>38. What is a major difference in soil management between coffee farming in Kenya and Brazil?</summary><div><p>Kenya relies heavily on artificial fertilizers to maintain soil fertility, while Brazil relies more on the natural fertility of its soils with minimal fertilizer use.</p></div></details>
+                        <details><summary>39. How does the government of Canada support its wheat farmers?</summary><div><p>Through incentives, subsidies, advanced scientific research, and maintaining an efficient transport network.</p></div></details>
+                        <details><summary>40. What is a key feature of the marketing system for horticulture in the Netherlands?</summary><div><p>It is highly organized through cooperatives and large auction marts where produce is sold efficiently.</p></div></details>
+                        <details><summary>41. What is a major reason pastoralists keep large herds of animals?</summary><div><p>Traditionally, the quantity of animals is a sign of wealth and social status, often valued more than the quality of individual animals.</p></div></details>
+                        <details><summary>42. Name one problem facing tea processing in Kenya.</summary><div><p>Poor feeder roads can delay the transport of fresh green leaf from collection centers to the factory, which can affect quality.</p></div></details>
+                        <details><summary>43. What is monoculture and what is its main disadvantage?</summary><div><p>Monoculture is the practice of growing a single crop on the same land year after year. Its main disadvantage is soil exhaustion, as the crop continuously depletes the same set of nutrients.</p></div></details>
+                        <details><summary>44. Why is a high population density an advantage for agriculture in some parts of Kenya?</summary><div><p>It provides an adequate and readily available supply of labor for farm activities like planting, weeding, and harvesting.</p></div></details>
+                        <details><summary>45. What is the main function of a combine harvester?</summary><div><p>It is a machine used in large-scale grain farming that reaps (cuts), threshes (separates grain from stalk), and often bales the straw in a single operation.</p></div></details>
+                        <details><summary>46. Why is greenhouse farming advantageous for horticulture?</summary><div><p>It allows for the creation of a controlled, semi-artificial climate, protecting crops from adverse weather and making it possible to grow them all year round.</p></div></details>
+                        <details><summary>47. What is a major problem associated with the marketing of maize in Kenya?</summary><div><p>Poor marketing channels often involve middlemen who exploit farmers by buying their produce at very low prices, especially during a bumper harvest.</p></div></details>
+                        <details><summary>48. Name two exotic beef cattle breeds reared in Argentina.</summary><div><p>The Hereford and the Shorthorn. (Aberdeen Angus is also correct).</p></div></details>
+                        <details><summary>49. What is the main climatic factor favouring cocoa growing in Ghana?</summary><div><p>High relative humidity (over 75%) and high, well-distributed rainfall (1300-1500mm) throughout the year.</p></div></details>
+                        <details><summary>50. How does the land tenure system affect agriculture in Kenya?</summary><div><p>Systems of inheritance often lead to the subdivision of land into small, uneconomical plots, which limits the potential for mechanization and large-scale commercial farming.</p></div></details>
+                        <details><summary>51. What is the significance of the Great Lakes and St. Lawrence Seaway for Canadian wheat farming?</summary><div><p>It forms a crucial part of the elaborate transport network that allows Canada to efficiently export large volumes of wheat to international markets.</p></div></details>
+                        <details><summary>52. Describe one way the Kenyan government is trying to improve pastoralism.</summary><div><p>By encouraging the formation of group ranches, which helps pastoralists to manage their land and livestock more commercially and sustainably.</p></div></details>
+                        <details><summary>53. What is a major difference in the use of fodder between dairy farming in Kenya and Denmark?</summary><div><p>In Denmark, dairy farming is heavily reliant on cultivated fodder crops, whereas in Kenya, it depends more on natural grass with limited use of fodder.</p></div></details>
+                        <details><summary>54. What is a key challenge for oil palm farming in Nigeria?</summary><div><p>Competition from Southeast Asian countries like Indonesia and Malaysia, which dominate the global market.</p></div></details>
+                        <details><summary>55. Why is a dry period important for coffee cultivation?</summary><div><p>A dry period of about two months is necessary to enhance the ripening of the coffee berries before harvesting.</p></div></details>
+                        <details><summary>56. What is a major problem caused by monoculture in plantation farming?</summary><div><p>It leads to soil exhaustion because the same crop continuously extracts the same nutrients from the soil without replenishment.</p></div></details>
+                        <details><summary>57. How does the government's price control policy affect farmers?</summary><div><p>Government policies on prices, such as setting low producer prices or allowing cheap imports, can significantly reduce farmers' profits and morale.</p></div></details>
+                        <details><summary>58. What is the main difference between horticulture and market gardening in terms of their market?</summary><div><p>Horticulture is primarily export-oriented, targeting international markets, while market gardening serves the nearest local urban centers.</p></div></details>
+                        <details><summary>59. Why is good transport infrastructure crucial for tea farming?</summary><div><p>Freshly picked tea leaves must be transported quickly to the factory for processing to avoid spoilage and maintain quality.</p></div></details>
+                        <details><summary>60. What is a major economic benefit of beef farming in Argentina?</summary><div><p>It is a major source of foreign exchange earnings through the export of high-quality beef to Europe and other international markets.</p></div></details>
+                        <details><summary>61. How does religion influence agriculture?</summary><div><p>Some religions have dietary restrictions that prohibit the rearing or consumption of certain animals, such as pigs in Islam and Judaism, which affects livestock farming choices.</p></div></details>
+                        <details><summary>62. What is the significance of volcanic soils for agriculture in Kenya?</summary><div><p>The volcanic soils found in the Kenyan highlands are deep, fertile, and well-drained, making them ideal for growing high-value cash crops like tea and coffee.</p></div></details>
+                        <details><summary>63. Why is mechanization more prevalent in Canada's wheat farms than in Kenya's?</summary><div><p>Canada has vast, extensive tracts of flat land (prairies) and higher capital availability, which makes large-scale mechanization more feasible and economical compared to the smaller, often fragmented farms in Kenya.</p></div></details>
+                        <details><summary>64. What is a key advantage of the cooperative system in Danish dairy farming?</summary><div><p>The cooperatives are highly developed and provide comprehensive support to farmers, including processing, marketing, and access to credit, which enhances efficiency and profitability.</p></div></details>
+                        <details><summary>65. Describe one characteristic of shifting cultivation.</summary><div><p>It involves clearing a plot of land, often by "slash and burn," cultivating it for a few years until yields decline, and then abandoning it to move to a new plot.</p></div></details>
+                        <details><summary>66. What is a major problem facing maize farmers regarding storage?</summary><div><p>Lack of sufficient and appropriate storage facilities often compels farmers to sell their produce immediately after harvest at low prices to avoid losses from pests like weevils.</p></div></details>
+                        <details><summary>67. How does the processing of coffee begin after harvesting?</summary><div><p>The first step is pulping, where the outer skin of the ripe coffee berries is removed to expose the beans inside.</p></div></details>
+                        <details><summary>68. What is a key difference in the labor force between horticulture in Kenya and the Netherlands?</summary><div><p>Kenya relies on a large, relatively low-cost labor force, while the Netherlands has a smaller, highly skilled labor force with a long tradition in horticulture.</p></div></details>
+                        <details><summary>69. Name one problem that affects both tea and sugarcane farmers in Kenya.</summary><div><p>Both face challenges from pests and diseases that can reduce crop yields and quality.</p></div></details>
+                        <details><summary>70. What is the main reason for the high quality of beef from Argentina?</summary><div><p>The cattle are primarily grass-fed on the fertile pampas grasslands, which results in leaner and more flavorful meat compared to grain-fed cattle.</p></div></details>
+                        <details><summary>71. Explain how climatic hazards affect wheat farming in Canada.</summary><div><p>Adverse conditions like unexpected early frosts can damage the crop before it fully matures, and hailstorms can physically destroy the wheat heads, leading to significant yield losses.</p></div></details>
+                        <details><summary>72. What is an outgrower scheme in the context of sugarcane farming?</summary><div><p>It's an arrangement where a sugar factory assists small-scale farmers in its vicinity with inputs, credit, and transport to ensure a steady supply of cane for the factory.</p></div></details>
+                        <details><summary>73. Describe two characteristics of Mediterranean agriculture.</summary><div><p>1. It is intensive and highly specialized. 2. It combines different types of farming, including orchard farming (citrus, olives), viticulture (grapes), and cereal cultivation.</p></div></details>
+                        <details><summary>74. Why is a well-developed transport network essential for beef farming in Argentina?</summary><div><p>It is needed to transport live cattle from the extensive ranches (estancias) to the meat-packing plants and to move the refrigerated beef products to ports for export.</p></div></details>
+                        <details><summary>75. What is a major physical condition required for growing oil palm?</summary><div><p>High rainfall of over 2000mm that is well-distributed throughout the year, along with high temperatures and high humidity.</p></div></details>
+                        <details><summary>76. What is the role of the National Cereals and Produce Board (NCPB) in Kenya?</summary><div><p>It acts as a strategic grain reserve for the country and provides a market for maize farmers, although it has faced challenges with delayed payments.</p></div></details>
+                        <details><summary>77. What is one solution Brazil has implemented to address overproduction of coffee?</summary><div><p>Prohibiting new planting to limit supply and buying and storing surplus coffee to release during times of poor harvest, which helps stabilize prices.</p></div></details>
+                        <details><summary>78. How does altitude benefit tea and coffee growing in Kenya?</summary><div><p>High altitudes provide the cool temperatures that are ideal for these crops and also help to reduce the incidence of many pests and diseases that thrive in warmer lowlands.</p></div></details>
+                        <details><summary>79. What is a "polder" in the context of Dutch agriculture?</summary><div><p>A polder is a piece of low-lying land reclaimed from the sea or a lake and protected by dikes. This land reclamation has been crucial for expanding the area available for horticulture in the Netherlands.</p></div></details>
+                        <details><summary>80. Describe a major difference between the animals kept in pastoralism and commercial ranching.</summary><div><p>Pastoralism often involves keeping large herds of indigenous, hardy breeds (like Zebu cattle) where quantity is important. Commercial ranching focuses on high-quality, often exotic breeds (like Hereford) selected specifically for meat production.</p></div></details>
+                        <details><summary>81. What is the first step in processing cocoa after harvesting?</summary><div><p>The pods are split open, and the beans, embedded in pulp, are scooped out. They are then heaped and covered to ferment, which helps develop the flavor.</p></div></details>
+                        <details><summary>82. Why is coffee grown on small holdings in Kenya often intercropped?</summary><div><p>Farmers practice mixed farming to diversify their income, provide food for their families, and reduce the risk associated with relying on a single cash crop whose price can fluctuate.</p></div></details>
+                        <details><summary>83. What is a major climatic challenge for tea farming in Kenya?</summary><div><p>Climatic hazards like prolonged drought can reduce yields, while hailstorms can physically damage the tea bushes and leaves.</p></div></details>
+                        <details><summary>84. How do dairy cooperatives in Denmark support farmers with technology?</summary><div><p>They often provide advanced technology such as milking machines and cooling equipment, and they run the modern, efficient processing plants.</p></div></details>
+                        <details><summary>85. Name two uses of palm oil.</summary><div><p>It is used as a cooking oil and as a raw material in the manufacturing of soap and candles.</p></div></details>
+                        <details><summary>86. What is the main product of viticulture?</summary><div><p>Wine, which is made from grapes.</p></div></details>
+                        <details><summary>87. How has the introduction of exotic cattle breeds improved livestock farming in Kenya?</summary><div><p>Exotic breeds (like Friesian for dairy and Hereford for beef) have higher yields of milk or meat compared to indigenous breeds, making farming more commercially viable.</p></div></details>
+                        <details><summary>88. What is the main reason for the high degree of specialization in Dutch horticulture?</summary><div><p>A long tradition, combined with advanced research, high capital investment, and a focus on meeting the specific demands of the high-value European market, has led to intense specialization in crops like flowers and specific vegetables.</p></div></details>
+                        <details><summary>89. Why are fertile, deep volcanic soils ideal for coffee?</summary><div><p>They provide the necessary nutrients for healthy growth and are well-drained, which prevents waterlogging and root diseases.</p></div></details>
+                        <details><summary>90. What is a major problem with the marketing of coffee for small-scale farmers in Kenya?</summary><div><p>The marketing chain, which often involves cooperatives and marketing boards, can be inefficient, leading to delayed payments that lower farmers' morale.</p></div></details>
+                        <details><summary>91. What is a key characteristic of the farms used for extensive mechanized grain cultivation?</summary><div><p>The farms are very large, often ranging from hundreds to thousands of hectares, to allow for the efficient use of large machinery.</p></div></details>
+                        <details><summary>92. Why is a dry season important for cotton harvesting?</summary><div><p>A dry season is needed for the cotton bolls to open fully and for the lint to be picked without being damaged by moisture, which can cause it to rot.</p></div></details>
+                        <details><summary>93. What is the main challenge related to labor in plantation farming?</summary><div><p>Plantations require a large, often hired labor force, especially for tasks like harvesting (e.g., picking tea or coffee). Labor availability and cost can be significant challenges.</p></div></details>
+                        <details><summary>94. How has the development of refrigeration technology impacted beef farming in Argentina?</summary><div><p>Refrigerated transport, especially on ships, was crucial for allowing Argentina to export large quantities of high-quality chilled or frozen beef to distant markets in Europe, transforming its beef industry.</p></div></details>
+                        <details><summary>95. Why are the Kenyan highlands suitable for a wide variety of crops?</summary><div><p>The combination of fertile volcanic soils, reliable and well-distributed rainfall, and moderate temperatures creates ideal conditions for growing both tropical and temperate crops.</p></div></details>
+                        <details><summary>96. What is a major difference in the landscape between the beef farming areas of Kenya and Argentina?</summary><div><p>Beef farming in Argentina is practiced on the vast, open, and naturally fertile pampas grasslands. In Kenya, it is often practiced in semi-arid savanna environments or on ranches carved out of these areas, which may have less reliable pasture.</p></div></details>
+                        <details><summary>97. How does the "slash and burn" method of shifting cultivation affect the soil?</summary><div><p>Burning the cleared forest destroys much of the soil's organic matter and humus, quickly reducing its fertility after only a few years of cultivation.</p></div></details>
+                        <details><summary>98. Name a disease that affects tea plants in Kenya.</summary><div><p>Root rot is a disease that can affect tea plants.</p></div></details>
+                        <details><summary>99. Why is artificial insemination (AI) important for dairy farming?</summary><div><p>It allows farmers to use semen from high-quality bulls to breed their cows, rapidly improving the genetic potential of the herd for milk production without needing to own or transport the bulls.</p></div></details>
+                        <details><summary>100. What is a key advantage of growing crops in a greenhouse?</summary><div><p>It protects the crops from adverse climatic conditions like hailstorms, frost, and strong winds, ensuring a more reliable and higher-quality yield.</p></div></details>
+                        <details><summary>101. Why is the coastal region of Kenya suitable for crops like coconuts and cashew nuts?</summary><div><p>It has the high temperatures and humidity that these tropical crops require, along with sandy soils in many areas.</p></div></details>
+                        <details><summary>102. Describe a major challenge for the global coffee market.</summary><div><p>Price volatility is a major challenge. Overproduction by major producers can lead to a glut in the market and a collapse in prices, which severely affects the income of farmers worldwide.</p></div></details>
+                        <details><summary>103. What is the main product derived from pyrethrum flowers?</summary><div><p>Pyrethrins, which are natural insecticides used to make insect-killing products.</p></div></details>
+                        <details><summary>104. How does overstocking affect pastoral areas?</summary><div><p>Overstocking leads to overgrazing, where the vegetation cover is removed faster than it can regenerate. This exposes the soil to erosion and can lead to desertification.</p></div></details>
+                        <details><summary>105. What is the final step in coffee processing before it is packed for sale?</summary><div><p>After being dried, hulled, and graded, the green coffee beans are roasted to develop their characteristic flavor and aroma, and then often ground into powder.</p></div></details>
+                        <details><summary>106. Why is sugarcane transported to the factory immediately after harvesting?</summary><div><p>To preserve the quality and content of the sugar (sucrose) in the cane, which begins to deteriorate quickly once it is cut.</p></div></details>
+                        <details><summary>107. What is a major difference in land use intensity between Kenyan and Canadian wheat farming?</summary><div><p>Wheat farming in Canada is very extensive, with vast areas dedicated to the crop. In Kenya, wheat farming is less extensive and faces more competition for land from other crops and land uses.</p></div></details>
+                        <details><summary>108. What is the main difference between highland and lowland commercial dairy farming in Kenya?</summary><div><p>Highland dairy farming uses high-yield exotic breeds like Friesians in cool, wet conditions. Lowland dairy farming, often at the coast, may use more heat-tolerant breeds, sometimes cross-bred with indigenous cattle.</p></div></details>
+                        <details><summary>109. What is a key similarity between livestock ranching and plantation farming?</summary><div><p>Both are large-scale, commercial undertakings that are often scientifically managed, focus on a single product (monoculture/monoculture), and require significant capital investment.</p></div></details>
+                        <details><summary>110. How do international agreements affect agriculture?</summary><div><p>Agreements on trade, such as quotas (limiting the amount of a product that can be sold) or tariffs (taxes on imports), can significantly impact the profitability and market access for a country's agricultural exports.</p></div></details>
+                        <details><summary>111. What is a major similarity in the problems facing tea and coffee farmers in Kenya?</summary><div><p>Both groups of farmers face challenges from pests and diseases, price fluctuations on the world market, and sometimes delayed payments from their respective cooperatives or marketing boards.</p></div></details>
+                        <details><summary>112. Why are the prairies of Canada ideal for wheat cultivation?</summary><div><p>They have extensive, flat to gently rolling terrain suitable for large machinery, fertile chernozem soils, and a suitable climate with warm summers and moderate rainfall.</p></div></details>
+                        <details><summary>113. What is a major social challenge that has historically affected coffee farming in Brazil?</summary><div><p>Historically, the industry was built on a system of large plantations (fazendas) that created significant social and economic inequalities.</p></div></details>
+                        <details><summary>114. What are the two main products derived from the oil palm fruit?</summary><div><p>Palm oil, which is extracted from the fleshy outer part (pericarp), and palm kernel oil, which is extracted from the nut or kernel inside.</p></div></details>
+                        <details><summary>115. How does a well-organized cooperative benefit dairy farmers in Denmark?</summary><div><p>It gives them a strong bargaining position, ensures efficient collection and processing, provides access to technology and credit, and handles marketing, allowing farmers to focus on production.</p></div></details>
+                        <details><summary>116. What is a major reason for the high cost of farm inputs in Kenya?</summary><div><p>Many inputs, such as high-quality fertilizers, certified seeds, and pesticides, are often imported, making them expensive and subject to currency fluctuations.</p></div></details>
+                        <details><summary>117. Describe the process of fermenting cocoa beans.</summary><div><p>After being removed from the pods, the beans are heaped and covered (traditionally with banana leaves). This allows the pulp to ferment and drain away, a process crucial for developing the characteristic chocolate flavor.</p></div></details>
+                        <details><summary>118. What is a key difference in the type of labor used in small-scale vs. plantation farming?</summary><div><p>Small-scale farming often relies heavily on family labor, while large-scale plantations primarily use hired labor.</p></div></details>
+                        <details><summary>119. How has the development of artificial insemination (AI) been significant for livestock farming?</summary><div><p>AI has allowed for the rapid and widespread improvement of livestock genetics by giving many farmers access to semen from elite sires, boosting traits like milk yield or meat quality without the need to own the male animal.</p></div></details>
+                        <details><summary>120. Why do the governments of both Kenya and Brazil intervene in their respective coffee industries?</summary><div><p>Because coffee is a vital export crop for both nations, governments intervene to try and stabilize prices, manage supply, support farmers, and maintain their position in the highly competitive world market.</p></div></details>
+                         <details><summary>121. What is the significance of the "slash and burn" technique in shifting cultivation?</summary><div><p>It is the method used to clear virgin forest land. The ash from the fire provides a temporary boost of nutrients to the soil for the first few crops.</p></div></details>
+                        <details><summary>122. Why are areas around the Lake Victoria basin in Kenya suitable for sugarcane growing?</summary><div><p>These areas, such as the Kano Plains, have the high temperatures, high rainfall, and fertile alluvial and black cotton soils that sugarcane requires.</p></div></details>
+                        <details><summary>123. What is a key difference between the farming systems in the Kenyan highlands and the Canadian prairies?</summary><div><p>The Kenyan highlands are characterized by intensive mixed farming on smaller plots due to high population density. The Canadian prairies are characterized by extensive, highly mechanized monoculture of grain on vast tracts of land due to low population density.</p></div></details>
+                        <details><summary>124. How does the transport of horticultural products from Kenya differ from that of the Netherlands?</summary><div><p>Kenya relies almost exclusively on air freight to transport its perishable products to distant European markets, which is expensive. The Netherlands can use a combination of road, rail, and short-sea shipping to access its main markets within Europe, which is cheaper and more flexible.</p></div></details>
+                    </div>
+                </div>
+
+            </div>
+
+            <footer class="bg-white p-4 flex justify-between items-center border-t">
+                <button id="prev-btn" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-lg transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
+                    Previous
+                </button>
+                <button id="next-btn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
+                    Next
+                </button>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- ELEMENTS ---
+            const sidebar = document.getElementById('sidebar');
+            const hamburgerMenu = document.getElementById('hamburger-menu');
+            const sideMenu = document.getElementById('side-menu').querySelector('ul');
+            const contentArea = document.getElementById('content-area');
+            const slides = document.querySelectorAll('.slide');
+            const breadcrumbs = document.getElementById('breadcrumbs');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+
+            let currentSlideIndex = 0;
+
+            // --- FUNCTIONS ---
+
+            /**
+             * Populates the side navigation menu based on the data-title attribute of each slide.
+             */
+            function populateNavMenu() {
+                slides.forEach((slide, index) => {
+                    const title = slide.getAttribute('data-title');
+                    const listItem = document.createElement('li');
+                    listItem.innerHTML = `<a href="#" class="block py-2 px-4 rounded hover:bg-gray-700 transition-colors duration-200" data-index="${index}">${title}</a>`;
+                    sideMenu.appendChild(listItem);
+                });
+            }
+            
+            /**
+             * Shows a specific slide by its index and hides others.
+             * @param {number} index - The index of the slide to show.
+             */
+            function showSlide(index) {
+                // Hide all slides
+                slides.forEach(slide => slide.classList.add('hidden'));
+
+                // Show the target slide
+                if (slides[index]) {
+                    slides[index].classList.remove('hidden');
+                    currentSlideIndex = index;
+                    updateUI();
+                }
+            }
+
+            /**
+             * Updates the UI elements: breadcrumbs, navigation buttons, and active menu item.
+             */
+            function updateUI() {
+                const currentTitle = slides[currentSlideIndex].getAttribute('data-title');
+                
+                // Update Breadcrumbs
+                breadcrumbs.textContent = `Home / ${currentTitle}`;
+
+                // Update Side Menu Active State
+                document.querySelectorAll('#side-menu a').forEach(a => {
+                    a.classList.remove('bg-gray-700', 'font-bold');
+                    if (parseInt(a.getAttribute('data-index')) === currentSlideIndex) {
+                        a.classList.add('bg-gray-700', 'font-bold');
+                    }
+                });
+
+                // Update Prev/Next Buttons State
+                prevBtn.disabled = currentSlideIndex === 0;
+                nextBtn.disabled = currentSlideIndex === slides.length - 1;
+                
+                // Scroll content to top on slide change
+                contentArea.scrollTop = 0;
+            }
+
+            // --- EVENT LISTENERS ---
+
+            // Hamburger menu toggle
+            hamburgerMenu.addEventListener('click', () => {
+                sidebar.classList.toggle('hidden');
+            });
+
+            // Side menu navigation
+            sideMenu.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (e.target.tagName === 'A') {
+                    const index = parseInt(e.target.getAttribute('data-index'));
+                    showSlide(index);
+                    // Hide sidebar on mobile after clicking a link
+                    if (window.innerWidth < 768) {
+                        sidebar.classList.add('hidden');
+                    }
+                }
+            });
+
+            // "Next" button
+            nextBtn.addEventListener('click', () => {
+                if (currentSlideIndex < slides.length - 1) {
+                    showSlide(currentSlideIndex + 1);
+                }
+            });
+
+            // "Previous" button
+            prevBtn.addEventListener('click', () => {
+                if (currentSlideIndex > 0) {
+                    showSlide(currentSlideIndex - 1);
+                }
+            });
+
+            // --- INITIALIZATION ---
+            populateNavMenu();
+            showSlide(0); // Show the first slide initially
+        });
+    </script>
+</body>
+</html>

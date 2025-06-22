@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Guide to External Land-Forming Processes</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- MathJax CDN (included as requested) -->
+    <script>
+        MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    </script>
+
+    <style>
+        /* Custom styles for a fixed, non-scrolling layout */
+        html, body {
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Custom scrollbar for webkit browsers */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* Styling for the details/summary accordion */
+        details > summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 0.75rem;
+            background-color: #f3f4f6;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        details > summary:hover {
+            background-color: #e5e7eb;
+        }
+
+        details[open] > summary {
+            background-color: #d1d5db;
+        }
+        
+        details > div {
+            padding: 1rem;
+            border: 1px solid #d1d5db;
+            border-top: none;
+            border-radius: 0 0 0.375rem 0.375rem;
+        }
+
+        /* Minor style adjustments for content */
+        .slide h2 {
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 0.5rem;
+        }
+        .slide h3 {
+            color: #1f2937;
+        }
+        .slide h4 {
+            color: #374151;
+        }
+
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Main Container -->
+    <div class="flex h-screen">
+
+        <!-- Sidebar / Navigation Menu -->
+        <aside id="sidebar" class="bg-gray-800 text-white w-64 flex-shrink-0 custom-scrollbar overflow-y-auto hidden md:block transition-all duration-300">
+            <div class="p-4">
+                <h1 class="text-xl font-bold">External Land-Forming Processes</h1>
+                <nav id="side-menu" class="mt-8">
+                    <ul>
+                        <!-- Navigation links will be dynamically populated by JavaScript -->
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 flex flex-col">
+            <!-- Header with Hamburger Menu and Breadcrumbs -->
+            <header class="bg-white shadow-md p-4 flex items-center justify-between">
+                <button id="hamburger-menu" class="md:hidden text-gray-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+                <div id="breadcrumbs" class="text-sm text-gray-500 font-medium">
+                    <!-- Breadcrumbs will be dynamically updated by JavaScript -->
+                </div>
+            </header>
+
+            <!-- Slide Content -->
+            <div id="content-area" class="flex-1 p-6 lg:p-8 custom-scrollbar overflow-y-auto bg-white">
+                
+                <!-- Slide 1: Introduction to Weathering -->
+                <div class="slide" data-title="Weathering">
+                    <h2 class="text-2xl font-bold mb-4">Section 1: Weathering</h2>
+                    <p class="mb-4">Weathering is the foundational process of <strong>denudation</strong>, a term for all external processes that wear down the Earth's surface. It is specifically defined as the mechanical disintegration (physical breaking) and chemical decomposition (chemical decay) of rocks <em>in situ</em>. The term <em>in situ</em> is critical, as it means the rock is broken down in its original place, without being moved by agents like wind or water. The layer of loose, weathered rock material that results is called <strong>regolith</strong>.</p>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">1.1 Factors Influencing Weathering</h3>
+                    <ul class="list-disc list-inside space-y-3 mb-4">
+                        <li><strong>Climate:</strong> Temperature and moisture are the main climatic drivers. Hot, humid climates accelerate chemical weathering, as chemical reactions are faster at higher temperatures and water is a key reactant. Arid regions with large diurnal (daily) temperature ranges experience intense physical weathering.</li>
+                        <li><strong>Nature of the Rock:</strong> A rock's mineral composition, texture, color, and structure determine its resistance. For example, rocks with minerals like quartz are very resistant, while those with calcite (like limestone) are susceptible to chemical weathering. Well-jointed rocks have more surface area exposed to weathering processes.</li>
+                        <li><strong>Living Organisms:</strong> Plant roots can exert immense pressure as they grow into rock crevices (physical). Decomposing organic matter produces acids that enhance chemical weathering. Burrowing animals also expose rock to air and water.</li>
+                        <li><strong>Topography:</strong> The steepness of a slope affects the rate of weathering. On very steep slopes, weathered material is removed quickly by gravity, exposing fresh rock faces to attack. On gentle slopes, a thick layer of regolith can accumulate, which may insulate the bedrock and slow down the weathering rate.</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold mt-6 mb-2">1.2 Types and Processes of Weathering</h3>
+                    
+                    <h4 class="text-lg font-semibold mt-4 mb-2">Physical (Mechanical) Weathering</h4>
+                    <p class="mb-2">This is the breakdown of rock into smaller fragments without altering its chemical makeup. It is dominant in deserts and high-altitude areas.</p>
+                    <ul class="list-disc list-inside space-y-3 mb-4">
+                        <li><strong>Exfoliation:</strong> Common in arid regions with large temperature swings. The outer layers of a rock heat up and expand during the day, then cool and contract at night. This repeated stress, applied to a rock that is a poor conductor of heat, causes the outer layers to fracture and peel off, like the layers of an onion. This process creates large, rounded landforms called <strong>exfoliation domes</strong>.</li>
+                        <li><strong>Block Disintegration:</strong> Occurs in well-jointed rocks. Temperature fluctuations cause the entire rock mass to expand and contract, which pries apart the rock along existing joints and bedding planes, breaking it into large, angular blocks.</li>
+                        <li><strong>Granular Disintegration:</strong> Affects rocks composed of different minerals (e.g., granite). Each mineral expands and contracts at a different rate, creating internal stresses that cause the rock to crumble grain by grain into a coarse, sandy material.</li>
+                        <li><strong>Frost Action (Freeze-Thaw):</strong> Highly effective in cold, mountainous regions. Water enters cracks in a rock, and when it freezes, it expands by about 9% in volume. This expansion acts as a powerful wedge, widening the crack. Repeated cycles of freezing and thawing eventually shatter the rock.</li>
+                        <li><strong>Pressure Release (Unloading):</strong> Rocks formed deep within the Earth's crust (like granite) are under immense pressure. When the overlying material is eroded away over millions of years, this pressure is released, causing the rock to expand and crack in large, curved sheets parallel to the surface.</li>
+                    </ul>
+                    <div class="w-full h-48 bg-gray-200 flex items-center justify-center rounded-lg my-4"><span class="text-gray-500">Diagram Placeholder: Exfoliation Dome and Frost Shattering</span></div>
+
+                    <h4 class="text-lg font-semibold mt-4 mb-2">Chemical Weathering</h4>
+                    <p class="mb-2">This involves the decomposition of rock minerals through chemical reactions, resulting in the formation of new substances. It is most active in warm, moist climates.</p>
+                     <ul class="list-disc list-inside space-y-3 mb-4">
+                        <li><strong>Solution:</strong> The simple process where water, a universal solvent, dissolves certain rock minerals. Rock salt and gypsum are extremely soluble and can be completely dissolved.</li>
+                        <li><strong>Oxidation:</strong> The reaction of oxygen (usually dissolved in water) with minerals. It is essentially the "rusting" of rocks and is most common in those containing iron. The iron compounds are changed into iron oxides, which are reddish-brown and crumble easily.</li>
+                        <li><strong>Carbonation:</strong> Rainwater absorbs carbon dioxide from the air, forming a weak carbonic acid ($H_2O + CO_2 \rightarrow H_2CO_3$). This acid is very effective at dissolving rocks that contain calcium carbonate, such as limestone and chalk, converting it into soluble calcium bicarbonate ($H_2CO_3 + CaCO_3 \rightarrow Ca(HCO_3)_2$), which is then carried away in solution.</li>
+                        <li><strong>Hydrolysis:</strong> A chemical reaction between water and minerals. For instance, feldspar in granite reacts with water and is converted into kaolin (clay), a much softer material.</li>
+                        <li><strong>Hydration:</strong> The process where certain minerals absorb water into their structure, causing them to swell and create internal stresses that lead to the rock's disintegration.</li>
+                    </ul>
+
+                    <h4 class="text-lg font-semibold mt-4 mb-2">Biological Weathering</h4>
+                    <p class="mb-2">This is weathering caused by the actions of plants and animals. It can be both physical and chemical.</p>
+                    <ul class="list-disc list-inside space-y-2 mb-4">
+                        <li><strong>Plants:</strong> Tree and plant roots can grow into cracks and joints in rocks, and as they grow larger, they exert pressure, forcing the rock apart.</li>
+                        <li><strong>Animals:</strong> Burrowing animals (like rodents, rabbits, and termites) create tunnels that expose new rock surfaces to air and water, accelerating weathering.</li>
+                        <li><strong>Humans:</strong> Activities like mining, quarrying, and road construction involve large-scale excavation and breaking of rocks.</li>
+                    </ul>
+                </div>
+
+                <!-- Slide 2: Mass Wasting -->
+                <div class="slide hidden" data-title="Mass Wasting">
+                    <h2 class="text-2xl font-bold mb-4">Section 2: Mass Wasting</h2>
+                    <p class="mb-4">Mass wasting, or mass movement, is the downhill movement of a large mass of weathered rock material (regolith) and soil, primarily driven by the force of gravity.</p>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">2.1 Factors Influencing Mass Wasting</h3>
+                    <ul class="list-disc list-inside space-y-3 mb-4">
+                        <li><strong>Gravity:</strong> The fundamental force that pulls material downslope.</li>
+                        <li><strong>Angle of Slope:</strong> The steeper the slope, the greater the component of gravity pulling material downwards, making movement more likely and faster.</li>
+                        <li><strong>Water Content:</strong> Water adds significant weight to soil and regolith. It also fills pore spaces, reducing the internal friction that holds particles together, thereby acting as a lubricant and promoting failure.</li>
+                        <li><strong>Vegetation:</strong> Plant roots bind soil and loose rock together, increasing the stability of a slope. The removal of vegetation through deforestation or fire significantly increases the risk of mass wasting.</li>
+                        <li><strong>Tectonic Activity:</strong> Ground shaking during earthquakes or volcanic eruptions can dislodge vast amounts of material, triggering catastrophic landslides and rockfalls.</li>
+                        <li><strong>Human Activities:</strong> Excavations for roads, buildings, and mines can over-steepen slopes. Loading slopes with waste material or buildings can also increase stress and trigger movement.</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold mt-6 mb-2">2.2 Types of Mass Wasting</h3>
+                    <h4 class="text-lg font-semibold mt-4 mb-2">Slow Mass Wasting</h4>
+                    <ul class="list-disc list-inside space-y-3 mb-4">
+                        <li><strong>Soil Creep:</strong> A very slow, almost imperceptible downhill movement of soil and regolith. While not dramatic, it can cause significant long-term damage. Evidence includes tilted trees, fences, and utility poles; bent tree trunks; and small, step-like ridges on hillsides called <strong>terracettes</strong>.</li>
+                        <li><strong>Solifluction:</strong> A specific type of creep that occurs in cold, high-latitude or high-altitude environments. During summer, the top layer of soil thaws and becomes saturated with water, but the ground underneath remains frozen (permafrost). This saturated layer then flows slowly downhill over the frozen ground.</li>
+                    </ul>
+                    <div class="w-full h-48 bg-gray-200 flex items-center justify-center rounded-lg my-4"><span class="text-gray-500">Diagram Placeholder: Evidence of Soil Creep</span></div>
+                    
+                    <h4 class="text-lg font-semibold mt-4 mb-2">Rapid Mass Wasting</h4>
+                     <ul class="list-disc list-inside space-y-3 mb-4">
+                        <li><strong>Landslides:</strong> A general term for the rapid movement of rock and debris. Key types include:
+                            <ul class="list-circle list-inside ml-4">
+                                <li><strong>Slumping:</strong> A rotational movement where a mass of rock and regolith slides down a concave, curved surface.</li>
+                                <li><strong>Rockslides:</strong> Occur when a block of bedrock breaks loose and slides down a slope.</li>
+                                <li><strong>Debris Slides:</strong> Similar to a rockslide, but involves unconsolidated material.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Mudflows:</strong> A rapid flow of soil, rock debris, and a large amount of water. They are common in semi-arid regions where intense but infrequent rain can saturate loose surface material. Volcanic mudflows, composed of ash and water, are known as <strong>lahars</strong> and are extremely dangerous.</li>
+                        <li><strong>Rockfall:</strong> The free-fall of individual rocks from a steep cliff or slope. This is the fastest type of mass movement.</li>
+                    </ul>
+                    <div class="w-full h-48 bg-gray-200 flex items-center justify-center rounded-lg my-4"><span class="text-gray-500">Diagram Placeholder: Slump vs. Rockslide</span></div>
+                </div>
+                
+                <!-- Slide 3: Action of Rivers -->
+                <div class="slide hidden" data-title="Action of Rivers">
+                    <h2 class="text-2xl font-bold mb-4">Section 3: Action of Rivers (Fluvial Processes)</h2>
+                    <h3 class="text-xl font-semibold mt-6 mb-2">3.1 River Processes</h3>
+                    <h4 class="text-lg font-semibold mt-4 mb-2">Erosion Processes</h4>
+                    <ul class="list-disc list-inside">
+                        <li><strong>Hydraulic Action:</strong> The sheer force of moving water dislodges loose material from the river's bed and banks. In rapids and waterfalls, the compressed air forced into cracks can have an explosive effect.</li>
+                        <li><strong>Abrasion (Corrasion):</strong> The river's load (sediment) acts as sandpaper, scraping and grinding the channel. This is the most effective form of river erosion.</li>
+                        <li><strong>Attrition:</strong> Transported rocks and pebbles collide with each other, breaking down into smaller, smoother, and more rounded particles.</li>
+                        <li><strong>Solution (Corrosion):</strong> The chemical action of the water dissolving soluble minerals from the rocks that form the river's banks and bed.</li>
+                    </ul>
+                    <h4 class="text-lg font-semibold mt-4 mb-2">Transportation Processes</h4>
+                     <ul class="list-disc list-inside">
+                        <li><strong>Traction:</strong> Large boulders and rocks are rolled along the riverbed by the force of the water.</li>
+                        <li><strong>Saltation:</strong> Smaller pebbles and gravel are bounced or hopped along the riverbed.</li>
+                        <li><strong>Suspension:</strong> Fine, light material like clay and silt is held up and carried along within the main flow of the water.</li>
+                        <li><strong>Solution:</strong> Dissolved minerals are carried invisibly in the water as a chemical solution.</li>
+                    </ul>
+                     <h4 class="text-lg font-semibold mt-4 mb-2">Deposition</h4>
+                    <p>A river deposits its load when it loses energy. This occurs when the river's velocity decreases due to a reduction in gradient, a decrease in water volume (e.g., during a dry season), or when it enters a body of still water like a lake or the sea.</p>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">3.2 Landforms of River Erosion (Upper Course)</h3>
+                    <p>In its upper course, a river has a steep gradient and its energy is primarily directed towards vertical (downward) erosion.</p>
+                    <ul class="list-disc list-inside space-y-2 mb-4">
+                        <li><strong>V-Shaped Valley:</strong> Formed as the river erodes vertically, while weathering and mass wasting are responsible for shaping the steep valley sides.</li>
+                        <li><strong>Interlocking Spurs:</strong> The young river lacks the power to erode through ridges of hard rock, so it flows around them, creating spurs that appear to interlock from downstream.</li>
+                        <li><strong>Waterfalls:</strong> Formed where a river flows over a resistant band of rock onto a softer, more easily eroded rock. The softer rock is eroded more quickly, creating a plunge pool and undercutting the hard rock, which eventually collapses, causing the waterfall to retreat upstream.</li>
+                        <li><strong>Gorges:</strong> Deep, narrow, and very steep-sided river valleys, often formed by the upstream retreat of a waterfall.</li>
+                        <li><strong>Potholes:</strong> Circular depressions drilled into the rocky riverbed by the abrasive action of pebbles swirling in eddies.</li>
+                    </ul>
+                    <div class="w-full h-48 bg-gray-200 flex items-center justify-center rounded-lg my-4"><span class="text-gray-500">Diagram Placeholder: Waterfall Formation and Retreat</span></div>
+
+                    <h3 class="text-xl font-semibold mt-6 mb-2">3.3 Landforms of River Deposition (Lower Course)</h3>
+                    <p>In its lower course, the river's gradient is gentle, and its energy is directed towards lateral (sideways) erosion and deposition.</p>
+                     <ul class="list-disc list-inside space-y-2 mb-4">
+                        <li><strong>Meanders:</strong> Wide, sweeping bends formed as the river erodes laterally. Erosion is concentrated on the outer bank (forming a river cliff), while deposition occurs on the inner bank (forming a slip-off slope).</li>
+                        <li><strong>Ox-bow Lakes:</strong> Crescent-shaped lakes formed when a river cuts through the narrow neck of a meander during a flood, abandoning the old loop, which is then sealed off by deposition.</li>
+                        <li><strong>Floodplains:</strong> The wide, flat valley floor on either side of a river, built up over time by the deposition of fine sediment (alluvium) during repeated floods.</li>
+                        <li><strong>Levees:</strong> Raised banks along the sides of the river channel, formed by the deposition of the coarsest material during floods when the river first breaks its banks.</li>
+                        <li><strong>Deltas:</strong> A low-lying tract of alluvial deposits formed at the mouth of a river where it enters a sea or lake. The river splits into smaller channels called distributaries. Types include <strong>Arcuate</strong> (fan-shaped, e.g., Nile) and <strong>Bird's foot</strong> (e.g., Mississippi).</li>
+                        <li><strong>Alluvial Fans:</strong> Fan-shaped deposits of sediment laid down where a fast-flowing stream emerges from a steep valley onto a flatter plain, causing a sudden decrease in velocity.</li>
+                    </ul>
+                    <div class="w-full h-48 bg-gray-200 flex items-center justify-center rounded-lg my-4"><span class="text-gray-500">Diagram Placeholder: Meander and Ox-bow Lake Formation</span></div>
+                </div>
+                
+                <!-- Slide 4: Arid Landforms -->
+                <div class="slide hidden" data-title="Arid Landforms">
+                    <h2 class="text-2xl font-bold mb-4">Section 4: Action of Wind and Water in Arid Areas</h2>
+                    <p>In arid regions, the lack of vegetation cover means wind (aeolian processes) and occasional flash floods are powerful agents of landscape formation.</p>
+                    <h3 class="text-xl font-semibold mt-6 mb-2">4.1 Landforms of Wind Erosion</h3>
+                    <ul class="list-disc list-inside space-y-3 mb-4">
+                        <li><strong>Rock Pedestals/Mushroom Blocks:</strong> Wind abrasion is most effective within a meter of the ground. This undercuts the base of rock outcrops, leaving a top-heavy, mushroom-shaped feature as the upper part is less eroded.</li>
+                        <li><strong>Zeugens:</strong> Formed in areas with horizontal layers of hard and soft rock. Wind erodes cracks in the resistant caprock, creating furrows that are then deepened into the softer rock below, leaving tabular ridges of the hard rock.</li>
+                        <li><strong>Yardangs:</strong> Elongated, streamlined ridges of resistant rock aligned with the prevailing wind, separated by parallel corridors eroded in softer rock. They are formed where vertical bands of hard and soft rock lie parallel to the wind.</li>
+                        <li><strong>Deflation Hollows:</strong> Depressions formed by the wind lifting and removing loose sand and dust (deflation). If a hollow is eroded down to the water table, a permanent source of water called an <strong>oasis</strong> may form.</li>
+                    </ul>
+                    <div class="w-full h-48 bg-gray-200 flex items-center justify-center rounded-lg my-4"><span class="text-gray-500">Diagram Placeholder: Rock Pedestal and Yardang</span></div>
+
+                    <h3 class="text-xl font-semibold mt-6 mb-2">4.2 Landforms of Wind Deposition</h3>
+                    <ul class="list-disc list-inside space-y-3 mb-4">
+                        <li><strong>Sand Dunes:</strong> Hills or ridges of sand accumulated and shaped by the wind.
+                            <ul class="list-circle list-inside ml-4">
+                                <li><strong>Barchans:</strong> Crescent-shaped dunes with "horns" pointing downwind. They form in areas with a constant wind direction and a limited sand supply.</li>
+                                <li><strong>Seif Dunes:</strong> Long, linear ridges of sand that run parallel to the prevailing wind direction, sometimes extending for many kilometers.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Loess:</strong> Extensive blankets of fine, wind-blown silt. Loess deposits can form very fertile soils and are often found far from the original desert source.</li>
+                    </ul>
+                    <div class="w-full h-48 bg-gray-200 flex items-center justify-center rounded-lg my-4"><span class="text-gray-500">Diagram Placeholder: Barchan and Seif Dunes</span></div>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">4.3 Landforms of Water Action in Arid Areas</h3>
+                    <p>Though infrequent, rainfall in deserts is often intense, leading to powerful flash floods that create distinct landforms.</p>
+                     <ul class="list-disc list-inside space-y-2 mb-4">
+                        <li><strong>Wadis:</strong> Steep-sided, flat-floored, dry river valleys that carry water only during and immediately after heavy rains.</li>
+                        <li><strong>Bajadas:</strong> A continuous, sloping plain of alluvial material formed by the merging of several alluvial fans at the base of a mountain range.</li>
+                        <li><strong>Pediments:</strong> Gently sloping rock platforms that extend from the foot of a mountain, formed by the retreat of the mountain front due to weathering and erosion by sheet floods.</li>
+                        <li><strong>Inselbergs:</strong> Isolated, steep-sided residual hills that rise abruptly from a plain. They are remnants of more resistant rock left behind as the surrounding landscape was lowered by erosion.</li>
+                    </ul>
+                </div>
+
+                <!-- Slide 5: Action of Ice (Glaciation) -->
+                <div class="slide hidden" data-title="Action of Ice (Glaciation)">
+                    <h2 class="text-2xl font-bold mb-4">Section 5: Action of Ice (Glaciation)</h2>
+                    <h3 class="text-xl font-semibold mt-6 mb-2">5.1 Glacial Processes</h3>
+                    <ul class="list-disc list-inside space-y-3 mb-4">
+                        <li><strong>Erosion:</strong> A glacier erodes its valley through two main processes:
+                            <ul class="list-circle list-inside ml-4">
+                                <li><strong>Plucking (Quarrying):</strong> Meltwater freezes in cracks in the bedrock. As the glacier moves, it pulls or "plucks" large rock fragments away.</li>
+                                <li><strong>Abrasion:** The rock debris embedded in the base and sides of the glacier acts like sandpaper, scratching and grinding the bedrock. This creates polished surfaces and long scratches called <strong>striations</strong>.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Transportation:</strong> Material transported by a glacier is called <strong>moraine</strong>. It ranges in size from fine clay to huge boulders.</li>
+                        <li><strong>Deposition:</strong> When a glacier melts, it deposits its load. Glacial deposits, known as <strong>till</strong> or <strong>boulder clay</strong>, are characteristically unsorted, meaning they are a mixture of all particle sizes.</li>
+                    </ul>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">5.2 Landforms of Highland Glaciation (Alpine)</h3>
+                    <p>These are erosional features found in mountainous areas.</p>
+                     <ul class="list-disc list-inside space-y-2 mb-4">
+                        <li><strong>Cirque (or Corrie):</strong> An armchair-shaped hollow with a steep back wall, formed at the head of a glacial valley by plucking and abrasion. After the ice melts, a small lake called a <strong>tarn</strong> may occupy the cirque basin.</li>
+                        <li><strong>Arête:</strong> A sharp, knife-edge ridge formed where two adjacent cirques erode back-to-back towards each other.</li>
+                        <li><strong>Pyramidal Peak (or Horn):</strong> A sharp, pointed peak formed where three or more cirques erode back into the same mountain from different sides.</li>
+                        <li><strong>U-Shaped Valley (Glacial Trough):</strong> A valley with a characteristic U-shaped cross-section, formed when a powerful glacier widens, deepens, and straightens a pre-existing V-shaped river valley.</li>
+                        <li><strong>Hanging Valley:</strong> A smaller tributary valley left "hanging" at a higher elevation than the main glacial trough, which was eroded more deeply. Waterfalls often form where the hanging valley joins the main trough.</li>
+                        <li><strong>Fjord:</strong> A very deep, steep-sided coastal inlet formed when a U-shaped valley is drowned by a rise in sea level after the glacier has melted.</li>
+                    </ul>
+                    <div class="w-full h-48 bg-gray-200 flex items-center justify-center rounded-lg my-4"><span class="text-gray-500">Diagram Placeholder: Formation of a Cirque, Arête and Horn</span></div>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">5.3 Landforms of Lowland Glaciation (Continental)</h3>
+                    <p>These features, mostly depositional, are formed by vast ice sheets covering large areas.</p>
+                    <ul class="list-disc list-inside space-y-2 mb-4">
+                        <li><strong>Roche Moutonnée:</strong> An asymmetrical rock outcrop with a smooth, gently sloping upstream side (eroded by abrasion) and a steep, jagged downstream side (shaped by plucking).</li>
+                        <li><strong>Crag and Tail:</strong> A resistant rock outcrop (the crag) that protects a "tail" of softer rock or moraine on its leeward (down-ice) side from erosion.</li>
+                        <li><strong>Drumlins:</strong> Elongated, egg-shaped hills of glacial till, streamlined and molded by the moving ice sheet. They often occur in large groups known as "swarms."</li>
+                        <li><strong>Eskers:</strong> Long, sinuous (winding) ridges of sand and gravel deposited by meltwater streams that flowed in tunnels beneath, within, or on top of a melting glacier.</li>
+                        <li><strong>Outwash Plains:</strong> Extensive, gently sloping plains composed of sand and gravel that were deposited by meltwater streams flowing away from the front of a melting ice sheet.</li>
+                    </ul>
+                </div>
+                
+                <!-- Slide 6: Coastal Processes -->
+                <div class="slide hidden" data-title="Coastal Processes">
+                    <h2 class="text-2xl font-bold mb-4">Section 6: Coastal Processes (Action of Waves)</h2>
+                    <h3 class="text-xl font-semibold mt-6 mb-2">6.1 Wave Processes</h3>
+                    <ul class="list-disc list-inside space-y-3 mb-4">
+                        <li><strong>Erosion:</strong> Waves erode the coast through <strong>Hydraulic Action</strong> (force of water), <strong>Abrasion</strong> (sediment acting as tools), <strong>Attrition</strong> (sediment particles colliding), and <strong>Solution</strong> (dissolving of rock).</li>
+                        <li><strong>Transportation:</strong> The primary process is <strong>longshore drift</strong>. Waves approaching the shore at an angle move sediment up the beach (swash), and the backwash pulls it straight back down. This results in a net zigzag movement of sediment along the coast.</li>
+                        <li><strong>Deposition:</strong> Occurs when waves lose energy in sheltered areas like bays. <strong>Constructive waves</strong>, which have a strong swash and weak backwash, are responsible for building up beaches.</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold mt-6 mb-2">6.2 Landforms of Coastal Erosion</h3>
+                    <ul class="list-disc list-inside space-y-3 mb-4">
+                        <li><strong>Cliffs and Wave-Cut Platforms:</strong> Waves attack the base of a headland, creating a <strong>wave-cut notch</strong>. This undercutting weakens the rock above, which eventually collapses, causing the cliff to retreat inland. A gently sloping rock surface, the <strong>wave-cut platform</strong>, is left behind at the base of the retreating cliff.</li>
+                        <li><strong>Caves, Arches, Stacks, and Stumps:</strong> This is a classic sequence of erosion on a headland.
+                            <ol class="list-decimal list-inside ml-4">
+                                <li>Waves exploit a weakness (like a joint) to form a <strong>cave</strong>.</li>
+                                <li>If the cave erodes through the headland, an <strong>arch</strong> is formed.</li>
+                                <li>The roof of the arch eventually collapses due to gravity and weathering, leaving a pillar of rock called a <strong>stack</strong>.</li>
+                                <li>Further erosion reduces the stack to a <strong>stump</strong>, which may only be visible at low tide.</li>
+                            </ol>
+                        </li>
+                    </ul>
+                    <div class="w-full h-48 bg-gray-200 flex items-center justify-center rounded-lg my-4"><span class="text-gray-500">Diagram Placeholder: Formation of a Stack and Stump</span></div>
+
+                    <h3 class="text-xl font-semibold mt-6 mb-2">6.3 Landforms of Coastal Deposition</h3>
+                    <ul class="list-disc list-inside space-y-2 mb-4">
+                        <li><strong>Beaches:</strong> Accumulations of sand and shingle deposited by constructive waves in the zone between high and low tide marks.</li>
+                        <li><strong>Spits:</strong> Long, narrow ridges of sand or shingle that are attached to the land at one end and project out into the sea at the other. They are formed by longshore drift, often where the coastline changes direction.</li>
+                        <li><strong>Bars:</strong> Ridges of sand or shingle that grow across the mouth of a bay, sometimes enclosing a body of water to form a <strong>lagoon</strong>.</li>
+                        <li><strong>Tombolos:</strong> A spit that has grown out from the coast to connect with an offshore island.</li>
+                    </ul>
+                </div>
+                
+                <!-- Slide 7: Karst Scenery -->
+                <div class="slide hidden" data-title="Karst (Limestone) Scenery">
+                    <h2 class="text-2xl font-bold mb-4">Section 7: Action of Water in Limestone Areas (Karst Scenery)</h2>
+                    <p class="mb-4">In regions with soluble rocks like limestone, water action (mainly through carbonation) creates a unique and distinctive landscape known as <strong>karst scenery</strong>. A key characteristic of these areas is the lack of surface drainage, as water quickly percolates underground through a network of joints and fissures.</p>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">7.1 Surface Features</h3>
+                    <ul class="list-disc list-inside space-y-3 mb-4">
+                        <li><strong>Limestone Pavements:</strong> A bare rock surface dissected by a network of vertical cracks called <strong>grikes</strong>, which have been widened by solution. The rectangular blocks of limestone that are separated by the grikes are called <strong>clints</strong>.</li>
+                        <li><strong>Swallow Holes (or Sinkholes):** Depressions on the surface where a surface stream or rainwater disappears underground. They form where solution has enlarged a joint or fissure.</li>
+                        <li><strong>Dolines and Uvalas:</strong> Dolines are larger, enclosed depressions that may be formed by the collapse of an underground cavern roof or the merging of several swallow holes. Uvalas are even larger depressions formed from the coalescence of several dolines.</li>
+                        <li><strong>Dry Valleys:</strong> These are valleys that were carved by a surface stream in the past but no longer contain one because the water has been diverted to an underground route through a swallow hole.</li>
+                    </ul>
+                     <div class="w-full h-48 bg-gray-200 flex items-center justify-center rounded-lg my-4"><span class="text-gray-500">Diagram Placeholder: Surface Karst Features</span></div>
+
+                    <h3 class="text-xl font-semibold mt-6 mb-2">7.2 Underground Features</h3>
+                    <ul class="list-disc list-inside space-y-3 mb-4">
+                        <li><strong>Caves and Caverns:</strong> Extensive systems of underground passages and large chambers dissolved out of the limestone by percolating groundwater moving along joints and bedding planes.</li>
+                        <li><strong>Stalactites, Stalagmites, and Pillars:</strong> As water rich in dissolved calcium bicarbonate drips from the roof of a cave, it evaporates slightly and releases carbon dioxide, causing it to deposit calcium carbonate (calcite).
+                            <ul class="list-circle list-inside ml-4">
+                                <li><strong>Stalactites</strong> are icicle-like formations that hang down from the cave roof.</li>
+                                <li><strong>Stalagmites</strong> are stumpy, pillar-like formations that grow up from the cave floor.</li>
+                                <li>If a stalactite and a stalagmite meet, they form a <strong>limestone pillar</strong>.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="w-full h-48 bg-gray-200 flex items-center justify-center rounded-lg my-4"><span class="text-gray-500">Diagram Placeholder: Underground Cave Features</span></div>
+                </div>
+
+                <!-- Slide 8: Revision Questions -->
+                <div class="slide hidden" data-title="Revision Questions">
+                    <h2 class="text-2xl font-bold mb-4">Revision Questions</h2>
+                    <div class="space-y-4">
+                        <p class="text-center font-semibold p-4 bg-gray-100 rounded-lg">Expand the sections below to see the answers.</p>
+                        <!-- Questions will be inserted here -->
+                        <details><summary>1. Define denudation.</summary><div><p>Denudation refers to the external land-forming processes responsible for the wearing away, sculpting, and reshaping of the landscape.</p></div></details>
+                        <details><summary>2. What is weathering?</summary><div><p>Weathering is the mechanical disintegration and chemical decomposition of rocks in situ (without movement of the resulting material).</p></div></details>
+                        <details><summary>3. What is regolith?</summary><div><p>Regolith is the layer of loose rock debris that is the product of weathering.</p></div></details>
+                        <details><summary>4. List four factors influencing the rate and type of weathering.</summary><div><p>Climate, nature of the rock, living organisms, and topography.</p></div></details>
+                        <details><summary>5. How does climate influence weathering?</summary><div><p>Temperature and moisture are the primary drivers. Chemical weathering is dominant in hot, humid regions, while physical weathering prevails in areas with large diurnal temperature ranges.</p></div></details>
+                        <details><summary>6. Explain how the nature of a rock affects weathering.</summary><div><p>The rock's mineral composition, texture, color, and structure (joints, bedding planes) determine its susceptibility to different weathering processes.</p></div></details>
+                        <details><summary>7. What is physical weathering?</summary><div><p>It is the disintegration of rock without any change in its chemical composition.</p></div></details>
+                        <details><summary>8. Describe the process of exfoliation.</summary><div><p>Repeated expansion and contraction of a rock's outer layers due to temperature changes causes them to peel off like an onion.</p></div></details>
+                        <details><summary>9. What are exfoliation domes?</summary><div><p>Large, rounded domes formed by the process of exfoliation.</p></div></details>
+                        <details><summary>10. Differentiate between block disintegration and granular disintegration.</summary><div><p>Block disintegration is the breaking of well-jointed rocks into large, angular blocks. Granular disintegration is the breaking of rocks composed of different minerals grain by grain.</p></div></details>
+                        <details><summary>11. Explain how frost action weathers rocks.</summary><div><p>Water seeps into rock cracks, freezes, expands by about 9%, and exerts pressure that widens the cracks, eventually shattering the rock.</p></div></details>
+                        <details><summary>12. What is pressure release or unloading?</summary><div><p>When overlying rock is removed by erosion, the deep-seated rock below expands and cracks due to the reduced pressure.</p></div></details>
+                        <details><summary>13. Define chemical weathering.</summary><div><p>The decomposition of rock through chemical reactions, often forming new minerals.</p></div></details>
+                        <details><summary>14. Name four processes of chemical weathering.</summary><div><p>Solution, oxidation, carbonation, and hydrolysis. (Hydration is also a valid answer).</p></div></details>
+                        <details><summary>15. Explain the process of carbonation, mentioning the rock type most affected.</summary><div><p>Rainwater forms a weak carbonic acid which reacts with calcium carbonate in rocks like limestone, forming soluble calcium bicarbonate that is carried away.</p></div></details>
+                        <details><summary>16. What is oxidation and which rocks are most susceptible?</summary><div><p>It is the reaction of minerals with oxygen. It is most common in iron-rich rocks, causing them to "rust" and crumble.</p></div></details>
+                        <details><summary>17. Define hydrolysis.</summary><div><p>A complex reaction where water ions displace mineral ions in a rock, leading to the formation of new compounds like clay.</p></div></details>
+                        <details><summary>18. What is biological weathering?</summary><div><p>It involves the weathering actions of living organisms, such as plants, animals, and humans.</p></div></details>
+                        <details><summary>19. Give one example of weathering by plants and one by animals.</summary><div><p>Plants: Tree roots growing into rock joints. Animals: Burrowing animals creating passages for air and moisture.</p></div></details>
+                        <details><summary>20. How do human activities contribute to weathering?</summary><div><p>Through activities like mining, quarrying, and construction which directly break up rock.</p></div></details>
+                        <details><summary>21. Define mass wasting.</summary><div><p>Mass wasting is the movement of weathered rock material and soil down a slope under the direct influence of gravity.</p></div></details>
+                        <details><summary>22. What is the primary driving force behind mass wasting?</summary><div><p>Gravity.</p></div></details>
+                        <details><summary>23. List three other factors that influence mass wasting.</summary><div><p>Angle of slope, water content, vegetation cover, tectonic activity, and human activities.</p></div></details>
+                        <details><summary>24. How does water content affect the stability of slope material?</summary><div><p>Water acts as a lubricant and adds weight to the material, reducing friction and promoting movement.</p></div></details>
+                        <details><summary>25. Differentiate between slow and rapid mass wasting.</summary><div><p>Slow mass wasting (e.g., soil creep) is often imperceptible, while rapid mass wasting (e.g., landslides) is a fast, sudden movement.</p></div></details>
+                        <details><summary>26. What is soil creep?</summary><div><p>The slow, steady, and often imperceptible downhill movement of soil.</p></div></details>
+                        <details><summary>27. What are terracettes and what do they indicate?</summary><div><p>They are small, step-like terraces on hillsides that are evidence of soil creep.</p></div></details>
+                        <details><summary>28. Define solifluction.</summary><div><p>The slow flow of saturated soil over a permanently frozen subsoil (permafrost) in cold regions.</p></div></details>
+                        <details><summary>29. What is a landslide?</summary><div><p>The rapid movement of a large mass of earth and rock down a hill or mountain.</p></div></details>
+                        <details><summary>30. Describe slumping.</summary><div><p>A type of landslide where a mass of rock and soil moves down a curved, concave surface, often rotating as it moves.</p></div></details>
+                        <details><summary>31. Differentiate between a rockslide and a debris slide.</summary><div><p>A rockslide is a mass of rock sliding down a slope. A debris slide is the sudden downhill movement of accumulated rock debris and other loose materials.</p></div></details>
+                        <details><summary>32. What is a mudflow?</summary><div><p>A rapid flow of soil and water, common on steep slopes in arid or semi-arid regions after heavy rainstorms.</p></div></details>
+                        <details><summary>33. What is a lahar?</summary><div><p>A destructive mudflow composed of volcanic ash mixed with water.</p></div></details>
+                        <details><summary>34. Describe rockfall.</summary><div><p>The free-fall of individual rocks or boulders from a steep cliff face.</p></div></details>
+                        <details><summary>35. How can human activities trigger mass wasting?</summary><div><p>By undercutting slopes for roads or construction, which destabilizes them.</p></div></details>
+                        <details><summary>36. Name the four processes of river erosion.</summary><div><p>Hydraulic Action, Abrasion (Corrasion), Attrition, and Solution (Corrosion).</p></div></details>
+                        <details><summary>37. Name the four main ways a river transports its load.</summary><div><p>Traction, Saltation, Suspension, and Solution.</p></div></details>
+                        <details><summary>38. What is a V-shaped valley and how is it formed?</summary><div><p>A steep-sided valley formed by a river's vertical erosion in its upper course.</p></div></details>
+                        <details><summary>39. Explain the formation of a waterfall.</summary><div><p>It forms where a river flows over a band of hard rock onto softer rock, eroding the softer rock more quickly and creating a vertical drop.</p></div></details>
+                        <details><summary>40. What is an ox-bow lake?</summary><div><p>A crescent-shaped lake formed when a river cuts through the narrow neck of a meander, abandoning the old loop.</p></div></details>
+                        <details><summary>41. Describe how a river delta is formed.</summary><div><p>It's a low-lying tract of alluvial deposits formed at the mouth of a river where it enters a sea or lake, causing its velocity to decrease and its load to be deposited.</p></div></details>
+                        <details><summary>42. What are the two main agents of erosion and deposition in arid areas?</summary><div><p>Wind (aeolian processes) and occasional flash floods from water.</p></div></details>
+                        <details><summary>43. How does a rock pedestal form?</summary><div><p>Through wind abrasion, which is most effective near the ground, undercutting a rock outcrop to leave a top-heavy, mushroom shape.</p></div></details>
+                        <details><summary>44. Differentiate between a zeugen and a yardang.</summary><div><p>A zeugen is a tabular ridge of hard rock capping softer rock. A yardang is a streamlined ridge of resistant rock aligned with the wind, separated by corridors in softer rock.</p></div></details>
+                        <details><summary>45. What is the difference between a barchan and a seif dune?</summary><div><p>A barchan is a crescent-shaped dune with horns pointing downwind. A seif dune is a long, linear ridge parallel to the prevailing wind.</p></div></details>
+                        <details><summary>46. What is a wadi?</summary><div><p>A steep-sided, dry river valley in an arid area that only carries water during flash floods.</p></div></details>
+                        <details><summary>47. Define inselberg.</summary><div><p>An isolated, steep-sided residual hill rising abruptly from a plain, made of resistant rock.</p></div></details>
+                        <details><summary>48. What are the two main processes of glacial erosion?</summary><div><p>Plucking (quarrying) and abrasion.</p></div></details>
+                        <details><summary>49. What is the difference between till and moraine?</summary><div><p>Moraine is the material being transported by a glacier. Till (or boulder clay) is the unsorted mixture of deposits left behind when the glacier melts.</p></div></details>
+                        <details><summary>50. What is a cirque (or corrie)?</summary><div><p>An armchair-shaped hollow with a steep back wall, formed at the head of a glacial valley.</p></div></details>
+                        <details><summary>51. Differentiate between an arête and a pyramidal peak.</summary><div><p>An arête is a sharp ridge between two cirques. A pyramidal peak is a sharp peak where three or more cirques erode back-to-back.</p></div></details>
+                        <details><summary>52. How is a U-shaped valley formed?</summary><div><p>When a glacier widens, deepens, and straightens a pre-existing V-shaped river valley.</p></div></details>
+                        <details><summary>53. What is a fjord?</summary><div><p>A deep, steep-sided coastal inlet formed when a glacial trough is drowned by a rise in sea level.</p></div></details>
+                        <details><summary>54. Describe a roche moutonnée.</summary><div><p>An asymmetrical rock outcrop with a smooth, gently sloping upstream side (from abrasion) and a steep, jagged downstream side (from plucking).</p></div></details>
+                        <details><summary>55. What is an esker?</summary><div><p>A long, sinuous ridge of sand and gravel deposited by meltwater streams flowing in tunnels under a glacier.</p></div></details>
+                        <details><summary>56. What is longshore drift?</summary><div><p>The zigzag movement of sediment along a coast, caused by waves approaching the shore at an angle.</p></div></details>
+                        <details><summary>57. Describe the formation of a cave, arch, stack, and stump.</summary><div><p>Waves exploit a weakness in a headland to form a cave. Erosion through the headland forms an arch. The arch collapses, leaving a stack. The stack is eroded down to a stump.</p></div></details>
+                        <details><summary>58. What is a spit?</summary><div><p>A long, narrow ridge of sand or shingle that projects from the coast out into the sea.</p></div></details>
+                        <details><summary>59. How does a tombolo differ from a bar?</summary><div><p>A bar is a ridge of sand that grows across a bay. A tombolo is a spit that connects the mainland to an offshore island.</p></div></details>
+                        <details><summary>60. What is Karst scenery?</summary><div><p>A unique landscape formed in regions with soluble rocks like limestone, characterized by underground drainage.</p></div></details>
+                        <details><summary>61. What are grikes and clints?</summary><div><p>On a limestone pavement, grikes are the enlarged joints, and clints are the rectangular blocks they separate.</p></div></details>
+                        <details><summary>62. What is a swallow hole or sinkhole?</summary><div><p>A depression on the surface where a stream disappears underground.</p></div></details>
+                        <details><summary>63. How do stalactites and stalagmites form?</summary><div><p>Dripping water in a cave deposits calcium carbonate. Stalactites hang from the roof; stalagmites grow from the floor.</p></div></details>
+                        <details><summary>64. What is a limestone pillar?</summary><div><p>A column formed when a stalactite and a stalagmite meet.</p></div></details>
+                        <details><summary>65. What causes the distinctive "V" shape of a river valley in its upper course?</summary><div><p>The river's energy is focused on vertical erosion, cutting downwards, while weathering and mass wasting shape the valley sides.</p></div></details>
+                        <details><summary>66. Why does deposition dominate in the lower course of a river?</summary><div><p>Because the river's velocity and energy decrease due to a much gentler gradient, causing it to drop its load.</p></div></details>
+                        <details><summary>67. What are the key characteristics of a constructive wave?</summary><div><p>It has a strong swash (which pushes material up the beach) and a weak backwash (which is not strong enough to pull it all back).</p></div></details>
+                        <details><summary>68. What are striations in the context of glaciation?</summary><div><p>Scratches and grooves on bedrock caused by the abrasion of debris embedded in the base of a moving glacier.</p></div></details>
+                        <details><summary>69. What type of material makes up an alluvial fan?</summary><div><p>Coarse material like gravel and sand laid down by a fast-flowing stream.</p></div></details>
+                        <details><summary>70. Why is wind abrasion most effective near the ground surface in deserts?</summary><div><p>Because the wind can only lift and transport larger sand grains (which are the most effective abrasive tools) a short distance above the ground.</p></div></details>
+                        <details><summary>71. What is a river terrace?</summary><div><p>Step-like benches on the sides of a river valley, which are remnants of a former floodplain at a higher level before the river rejuvenated and cut down further.</p></div></details>
+                        <details><summary>72. Explain the significance of the "youthful" stage of a river.</summary><div><p>It is characterized by dominant vertical erosion, a steep gradient, and fast-flowing water, leading to the formation of features like V-shaped valleys, waterfalls, and gorges.</p></div></details>
+                        <details><summary>73. Explain the significance of the "old" stage of a river.</summary><div><p>It is characterized by dominant deposition, a very gentle gradient, and slow flow, leading to features like wide floodplains, meanders, ox-bow lakes, and deltas.</p></div></details>
+                        <details><summary>74. Why are glacial deposits (till) unsorted?</summary><div><p>Because the ice drops its entire load of various sizes all at once when it melts, unlike water which sorts sediment by size.</p></div></details>
+                        <details><summary>75. What is a wave-cut notch?</summary><div><p>A notch eroded at the base of a cliff by wave action, which leads to the undercutting and collapse of the cliff face.</p></div></details>
+                        <details><summary>76. How is a lagoon formed?</summary><div><p>A lagoon is a body of water enclosed when a bar (a ridge of sand or shingle) grows across the mouth of a bay.</p></div></details>
+                        <details><summary>77. What is the main chemical process responsible for the formation of Karst scenery?</summary><div><p>Carbonation, the dissolving of limestone by weak carbonic acid in rainwater.</p></div></details>
+                        <details><summary>78. What is a dry valley in a limestone area?</summary><div><p>A valley that was once carved by a surface stream but no longer contains one because the water has been diverted to an underground route.</p></div></details>
+                        <details><summary>79. What is the difference between a cirque and a U-shaped valley?</summary><div><p>A cirque is an armchair-shaped hollow at the head of a glacial valley, while a U-shaped valley is the entire valley that has been widened and deepened by a glacier.</p></div></details>
+                        <details><summary>80. Explain the formation of interlocking spurs.</summary><div><p>In its upper course, a river is not powerful enough to cut through ridges of hard rock, so it flows around them, creating spurs that appear to interlock from a downstream view.</p></div></details>
+                        <details><summary>81. What is an outwash plain?</summary><div><p>An extensive, gently sloping plain of sand and gravel (known as outwash) deposited by meltwater streams flowing away from the front of a melting ice sheet.</p></div></details>
+                        <details><summary>82. Describe the process of river capture (piracy).</summary><div><p>The process where a more powerful river erodes backwards and diverts the headwaters of a weaker, adjacent river into its own channel.</p></div></details>
+                        <details><summary>83. What is a hanging valley?</summary><div><p>A tributary glacial valley that is left at a higher elevation than the main glacial trough because the main glacier was much larger and eroded more deeply.</p></div></details>
+                        <details><summary>84. How does a spit form?</summary><div><p>Through longshore drift, where sediment is transported along the coast and deposited in a long, narrow ridge where the coastline changes direction.</p></div></details>
+                        <details><summary>85. What is the significance of a Roche Moutonnée's shape?</summary><div><p>Its asymmetrical shape, with a smooth upstream side and a jagged downstream side, indicates the direction of past ice movement.</p></div></details>
+                        <details><summary>86. What is a drumlin?</summary><div><p>An elongated, egg-shaped hill made of glacial till, streamlined and molded by a moving ice sheet, often occurring in large groups called swarms.</p></div></details>
+                        <details><summary>87. Why are features like potholes and waterfalls more common in the upper course of a river?</summary><div><p>Because the river has a steeper gradient, higher velocity, and more energy for vertical erosion and abrasive processes.</p></div></details>
+                        <details><summary>88. What is a crag and tail?</summary><div><p>A landform where a resistant rock outcrop (the crag) protects a tail of softer rock or moraine on its leeward side from glacial erosion.</p></div></details>
+                        <details><summary>89. How is a river levee formed?</summary><div><p>During floods, a river deposits its coarsest sediment along its banks as it overflows, building up raised banks called levees over time.</p></div></details>
+                        <details><summary>90. What is a bajada?</summary><div><p>A continuous, sloping plain of alluvial material formed by the merging of several alluvial fans at the base of a mountain range in an arid region.</p></div></details>
+                        <details><summary>91. What is a pediment?</summary><div><p>A gently sloping rock platform found at the foot of a mountain in an arid area, formed by weathering and erosion.</p></div></details>
+                        <details><summary>92. What are the key features that distinguish highland glaciation from lowland glaciation landforms?</summary><div><p>Highland glaciation creates sharp, angular erosional features in mountainous areas (cirques, arêtes, horns). Lowland glaciation is characterized by widespread depositional and molded features on plains (drumlins, eskers, outwash plains).</p></div></details>
+                        <details><summary>93. What is the role of vegetation in preventing mass wasting?</summary><div><p>Plant roots bind soil particles together, increasing the stability and shear strength of the slope material.</p></div></details>
+                        <details><summary>94. What is the difference between weathering and erosion?</summary><div><p>Weathering is the in-situ breakdown of rock without movement. Erosion is the process of wearing away and removing the weathered material by agents like water, wind, or ice.</p></div></details>
+                        <details><summary>95. How are deltas classified? Name two types.</summary><div><p>Deltas are classified by their shape. Two types are Arcuate (fan-shaped) and Bird's foot.</p></div></details>
+                        <details><summary>96. Why is chemical weathering more dominant in hot, humid regions?</summary><div><p>Because chemical reactions are accelerated by high temperatures and the presence of water, which acts as a medium for these reactions.</p></div></details>
+                        <details><summary>97. Why are physical weathering processes more dominant in deserts?</summary><div><p>Due to large diurnal (daily) temperature ranges which cause repeated expansion and contraction of rocks, and the lack of moisture which inhibits chemical weathering.</p></div></details>
+                        <details><summary>98. What is a tarn?</summary><div><p>A small mountain lake that forms in a cirque after a glacier has melted.</p></div></details>
+                        <details><summary>99. Describe the formation of a limestone pavement.</summary><div><p>It's a bare limestone surface where water action has enlarged joints (grikes), separating the surface into rectangular blocks (clints).</p></div></details>
+                        <details><summary>100. How does a cliff retreat?</summary><div><p>Waves erode a notch at the cliff base, undercutting it. The unsupported rock above collapses, and the process repeats, causing the cliff to move inland over time.</p></div></details>
+                        <details><summary>101. What is an outwash plain made of?</summary><div><p>Sorted sand and gravel deposited by meltwater streams flowing away from a glacier.</p></div></details>
+                        <details><summary>102. What is river rejuvenation?</summary><div><p>The renewal or revival of a river's erosive activity, often caused by a fall in sea level or uplift of the land.</p></div></details>
+                        <details><summary>103. What is a key feature indicating river rejuvenation?</summary><div><p>A knick point (a sharp break in the river's long profile), incised meanders, or river terraces.</p></div></details>
+                        <details><summary>104. What is the significance of Karst scenery being characterized by underground drainage?</summary><div><p>It means there are few or no surface streams, as water quickly disappears underground through features like swallow holes.</p></div></details>
+                        <details><summary>105. How does a rock's mineral composition affect granular disintegration?</summary><div><p>Rocks with different minerals expand and contract at different rates when heated and cooled, causing stress that breaks the rock apart grain by grain.</p></div></details>
+                        <details><summary>106. What is a slip-off slope?</summary><div><p>The gently sloping inner bank of a meander where deposition occurs.</p></div></details>
+                        <details><summary>107. What is a river cliff?</summary><div><p>The steep, eroded outer bank of a meander.</p></div></details>
+                        <details><summary>108. Why are drumlins often found in "swarms"?</summary><div><p>They are formed under large ice sheets, and the conditions that create one drumlin often exist over a large area, leading to the formation of many of them grouped together.</p></div></details>
+                        <details><summary>109. What is a key difference between the load of a river and a glacier?</summary><div><p>A river's load is sorted by size (heaviest materials dropped first), while a glacier's load (till) is completely unsorted.</p></div></details>
+                        <details><summary>110. How does the process of saltation work in wind transportation?</summary><div><p>Medium-sized sand particles are lifted by wind, travel a short distance, and then fall back to the ground, dislodging other particles in a hopping motion.</p></div></details>
+                        <details><summary>111. What is the significance of a wave-cut platform in terms of coastal change?</summary><div><p>It is direct evidence of coastal erosion and cliff retreat over a long period.</p></div></details>
+                        <details><summary>112. Explain how a spit can become a bar.</summary><div><p>If a spit continues to grow across the mouth of a bay due to longshore drift and eventually reaches the other side, it becomes a bar.</p></div></details>
+                        <details><summary>113. Why are fjords often much deeper inland than at their mouths?</summary><div><p>Because the glacier that carved the fjord was thickest and had the most erosive power further up the valley. A deposit of terminal moraine at the mouth also creates a shallower sill.</p></div></details>
+                        <details><summary>114. How does a lack of vegetation contribute to the formation of wadis?</summary><div><p>Without vegetation to bind the soil and slow down runoff, occasional intense rainfall can cause powerful flash floods that easily erode deep, steep-sided channels.</p></div></details>
+                        <details><summary>115. What are the key differences between a V-shaped valley and a U-shaped valley?</summary><div><p>A V-shaped valley is formed by a river and has steep sides. A U-shaped valley is carved by a glacier, which widens, deepens, and straightens a former river valley, giving it a flat bottom and very steep sides.</p></div></details>
+                        <details><summary>116. Define attrition and explain where it occurs in both river and coastal environments.</summary><div><p>Attrition is the process where transported rock fragments collide with each other and break down. In rivers, it happens as the load is carried downstream. At the coast, it occurs as waves move sediment back and forth.</p></div></details>
+                        <details><summary>117. What is an oasis and how does it relate to wind erosion?</summary><div><p>An oasis is a fertile spot in a desert where water is found. It can form in a deflation hollow, which is a depression created by wind erosion that has reached the underground water table.</p></div></details>
+                        <details><summary>118. What is the difference between a stalactite and a stalagmite?</summary><div><p>A stalactite is an icicle-like formation of calcium carbonate that hangs from the roof of a cave. A stalagmite grows upwards from the cave floor.</p></div></details>
+                        <details><summary>119. How can tectonic activity influence mass wasting?</summary><div><p>Earthquakes can shake and destabilize large areas of rock and soil on slopes, triggering landslides, rockfalls, and debris slides.</p></div></details>
+                        <details><summary>120. Why does a river meander in its middle and lower course?</summary><div><p>The gradient is gentler, so the river flows more slowly and begins to erode laterally (sideways) rather than vertically, creating wide bends.</p></div></details>
+                        <details><summary>121. What is the source of the material that forms moraine?</summary><div><p>It comes from rock weathered from the valley sides that falls onto the glacier, and from rock that is plucked and abraded from the valley floor and sides by the ice itself.</p></div></details>
+                        <details><summary>122. How are beaches formed?</summary><div><p>They are formed by the deposition of sand and shingle by constructive waves, which have a strong swash that moves material up the shore and a weak backwash that leaves it there.</p></div></details>
+                        <details><summary>123. What is the significance of joints and bedding planes in weathering?</summary><div><p>They are lines of weakness in a rock that allow water, air, and plant roots to penetrate, greatly accelerating both physical and chemical weathering processes.</p></div></details>
+                        <details><summary>124. What is the relationship between a floodplain and levees?</summary><div><p>A floodplain is the wide, flat area of alluvium on either side of a river. Levees are the raised banks along the river channel itself, formed by deposition during floods that spread across the floodplain.</p></div></details>
+                        <details><summary>125. Why is Karst scenery typically associated with a lack of surface drainage?</summary><div><p>Because limestone is a soluble but impervious rock with many joints. Rainwater quickly dissolves the rock along these joints and disappears underground, forming a subterranean drainage system rather than surface rivers.</p></div></details>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Navigation Buttons -->
+            <footer class="bg-white p-4 flex justify-between items-center border-t">
+                <button id="prev-btn" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-lg transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
+                    Previous
+                </button>
+                <button id="next-btn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
+                    Next
+                </button>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- ELEMENTS ---
+            const sidebar = document.getElementById('sidebar');
+            const hamburgerMenu = document.getElementById('hamburger-menu');
+            const sideMenu = document.getElementById('side-menu').querySelector('ul');
+            const contentArea = document.getElementById('content-area');
+            const slides = document.querySelectorAll('.slide');
+            const breadcrumbs = document.getElementById('breadcrumbs');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+
+            let currentSlideIndex = 0;
+
+            // --- FUNCTIONS ---
+
+            /**
+             * Populates the side navigation menu based on the data-title attribute of each slide.
+             */
+            function populateNavMenu() {
+                slides.forEach((slide, index) => {
+                    const title = slide.getAttribute('data-title');
+                    const listItem = document.createElement('li');
+                    listItem.innerHTML = `<a href="#" class="block py-2 px-4 rounded hover:bg-gray-700 transition-colors duration-200" data-index="${index}">${title}</a>`;
+                    sideMenu.appendChild(listItem);
+                });
+            }
+            
+            /**
+             * Shows a specific slide by its index and hides others.
+             * @param {number} index - The index of the slide to show.
+             */
+            function showSlide(index) {
+                // Hide all slides
+                slides.forEach(slide => slide.classList.add('hidden'));
+
+                // Show the target slide
+                if (slides[index]) {
+                    slides[index].classList.remove('hidden');
+                    currentSlideIndex = index;
+                    updateUI();
+                }
+            }
+
+            /**
+             * Updates the UI elements: breadcrumbs, navigation buttons, and active menu item.
+             */
+            function updateUI() {
+                const currentTitle = slides[currentSlideIndex].getAttribute('data-title');
+                
+                // Update Breadcrumbs
+                breadcrumbs.textContent = `Home / ${currentTitle}`;
+
+                // Update Side Menu Active State
+                document.querySelectorAll('#side-menu a').forEach(a => {
+                    a.classList.remove('bg-gray-700', 'font-bold');
+                    if (parseInt(a.getAttribute('data-index')) === currentSlideIndex) {
+                        a.classList.add('bg-gray-700', 'font-bold');
+                    }
+                });
+
+                // Update Prev/Next Buttons State
+                prevBtn.disabled = currentSlideIndex === 0;
+                nextBtn.disabled = currentSlideIndex === slides.length - 1;
+                
+                // Scroll content to top on slide change
+                contentArea.scrollTop = 0;
+            }
+
+            // --- EVENT LISTENERS ---
+
+            // Hamburger menu toggle
+            hamburgerMenu.addEventListener('click', () => {
+                sidebar.classList.toggle('hidden');
+            });
+
+            // Side menu navigation
+            sideMenu.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (e.target.tagName === 'A') {
+                    const index = parseInt(e.target.getAttribute('data-index'));
+                    showSlide(index);
+                    // Hide sidebar on mobile after clicking a link
+                    if (window.innerWidth < 768) {
+                        sidebar.classList.add('hidden');
+                    }
+                }
+            });
+
+            // "Next" button
+            nextBtn.addEventListener('click', () => {
+                if (currentSlideIndex < slides.length - 1) {
+                    showSlide(currentSlideIndex + 1);
+                }
+            });
+
+            // "Previous" button
+            prevBtn.addEventListener('click', () => {
+                if (currentSlideIndex > 0) {
+                    showSlide(currentSlideIndex - 1);
+                }
+            });
+
+            // --- INITIALIZATION ---
+            populateNavMenu();
+            showSlide(0); // Show the first slide initially
+        });
+    </script>
+</body>
+</html>
