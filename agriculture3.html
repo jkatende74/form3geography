@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Guide to Agriculture</title>
-    
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- MathJax CDN -->
     <script>
         MathJax = {
@@ -26,11 +26,11 @@
     <style>
         /* Custom styles for a fixed, non-scrolling layout */
         html, body {
-            height: 100%;
-            overflow: hidden;
+            /* height: 100%; */ /* Removed to allow page to expand with new header */
+            /* overflow: hidden; */ /* Removed to allow page to expand */
             font-family: 'Inter', sans-serif;
         }
-        
+
         /* Custom scrollbar for webkit browsers */
       .custom-scrollbar::-webkit-scrollbar {
             width: 8px;
@@ -67,7 +67,7 @@
         details[open] > summary {
             background-color: #d1d5db;
         }
-        
+
         details > div {
             padding: 1rem;
             border: 1px solid #d1d5db;
@@ -86,9 +86,54 @@
       .slide h4 {
             color: #374151;
         }
+
+        /* Styles for the new global header */
+        .global-header {
+            background-color: #333;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000; /* Ensure it's above other content */
+        }
+        .global-header audio {
+            display: block;
+            margin: 10px auto;
+            max-width: 80%;
+        }
+        .global-nav a {
+            color: #FFF;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 4px;
+            background-color: #555;
+        }
+        .global-nav a:hover {
+            background-color: #777;
+        }
+        .global-nav .nav-disabled {
+            color: #aaa;
+            pointer-events: none;
+            background-color: #444;
+        }
     </style>
 </head>
 <body class="bg-gray-100">
+
+    <header class="global-header">
+        <h3>Agriculture</h3>
+        <audio controls src="agriculture.mp3">
+            Your browser does not support the audio element.
+        </audio>
+        <nav class="global-nav">
+            <a href="index.html">Back to Dashboard</a>
+            <a href="soils2.html">Previous Topic</a>
+            <span class="nav-disabled">Next Topic</span>
+        </nav>
+    </header>
 
     <div class="flex h-screen">
 
@@ -112,7 +157,7 @@
             </header>
 
             <div id="content-area" class="flex-1 p-6 lg:p-8 custom-scrollbar overflow-y-auto bg-white">
-                
+
                 <div class="slide" data-title="Introduction">
                     <h2 class="text-2xl font-bold mb-4">Introduction to Agriculture</h2>
                     <h3 class="text-xl font-semibold mt-6 mb-2">Definition of Agriculture</h3>
@@ -168,7 +213,7 @@
 
                 <div class="slide hidden" data-title="Crop Farming in Kenya">
                     <h2 class="text-2xl font-bold mb-4">Major Cash Crops in Kenya</h2>
-                    
+
                     <h3 class="text-xl font-semibold mt-6 mb-2">Tea Farming</h3>
                     <ul class="list-disc list-inside space-y-2 mb-4">
                         <li><strong>Growing Areas:</strong> Concentrated in the Western Highlands (Kericho, Nandi, Kakamega) and Eastern Highlands (Nyeri, Murang'a, Kirinyaga, Embu, Meru).</li>
@@ -202,7 +247,7 @@
                         <li><strong>Ideal Conditions:</strong> Cool to hot climates (15-30°C), high rainfall (1000-2000mm) with a dry season for ripening, deep, fertile, well-drained volcanic soils, and high altitudes (610-2000m).</li>
                         <li><strong>Challenges:</strong> Pests and diseases (Coffee Berry Disease, Leaf Rust), price fluctuations on the world market, high costs of farm inputs, and competition from other crops.</li>
                     </ul>
-                    
+
                     <h3 class="text-xl font-semibold mt-6 mb-2">Wheat Farming</h3>
                     <ul class="list-disc list-inside space-y-2 mb-4">
                         <li><strong>Growing Areas:</strong> Large-scale farms in Nakuru, Narok, Uasin Gishu, and Laikipia counties.</li>
@@ -237,7 +282,7 @@
                         <li><strong>Challenges:</strong> Unreliable rainfall leading to pasture and water shortages, poor quality of natural pasture, pests (tsetse flies) and diseases, and competition for rangeland with wildlife.</li>
                     </ul>
                 </div>
-                
+
                 <div class="slide hidden" data-title="Comparative Studies">
                     <h2 class="text-2xl font-bold mb-4">Comparative Agricultural Studies</h2>
                     <h3 class="text-xl font-semibold mt-6 mb-2">Dairy Farming: Kenya vs. Denmark</h3>
@@ -251,7 +296,7 @@
                         <li><strong>Differences:</strong> Argentina is a world-leading exporter with vast, fertile pampas grasslands that support high-quality pasture. Its industry is highly organized with large-scale ranches (estancias) and advanced infrastructure. Kenya's beef sector is less developed, faces challenges from climate and pasture quality, and is more focused on the domestic market.</li>
                     </ul>
                 </div>
-                
+
                 <div class="slide hidden" data-title="Revision Questions">
                     <h2 class="text-2xl font-bold mb-4">Revision Questions</h2>
                     <div class="space-y-4">
@@ -423,7 +468,7 @@
                     sideMenu.appendChild(listItem);
                 });
             }
-            
+
             /**
              * Shows a specific slide by its index and hides others.
              * @param {number} index - The index of the slide to show.
@@ -445,7 +490,7 @@
              */
             function updateUI() {
                 const currentTitle = slides[currentSlideIndex].getAttribute('data-title');
-                
+
                 // Update Breadcrumbs
                 breadcrumbs.textContent = `Home / ${currentTitle}`;
 
@@ -460,7 +505,7 @@
                 // Update Prev/Next Buttons State
                 prevBtn.disabled = currentSlideIndex === 0;
                 nextBtn.disabled = currentSlideIndex === slides.length - 1;
-                
+
                 // Scroll content to top on slide change
                 contentArea.scrollTop = 0;
             }

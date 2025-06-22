@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Guide to External Land-Forming Processes</title>
-    
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- MathJax CDN (included as requested) -->
     <script>
         MathJax = {
@@ -26,11 +26,11 @@
     <style>
         /* Custom styles for a fixed, non-scrolling layout */
         html, body {
-            height: 100%;
-            overflow: hidden;
+            /* height: 100%; */ /* Removed to allow page to expand with new header */
+            /* overflow: hidden; */ /* Removed to allow page to expand */
             font-family: 'Inter', sans-serif;
         }
-        
+
         /* Custom scrollbar for webkit browsers */
         .custom-scrollbar::-webkit-scrollbar {
             width: 8px;
@@ -67,7 +67,7 @@
         details[open] > summary {
             background-color: #d1d5db;
         }
-        
+
         details > div {
             padding: 1rem;
             border: 1px solid #d1d5db;
@@ -87,9 +87,54 @@
             color: #374151;
         }
 
+        /* Styles for the new global header */
+        .global-header {
+            background-color: #333;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000; /* Ensure it's above other content */
+        }
+        .global-header audio {
+            display: block;
+            margin: 10px auto;
+            max-width: 80%;
+        }
+        .global-nav a {
+            color: #FFF;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 4px;
+            background-color: #555;
+        }
+        .global-nav a:hover {
+            background-color: #777;
+        }
+        .global-nav .nav-disabled {
+            color: #aaa;
+            pointer-events: none;
+            background-color: #444;
+        }
+
     </style>
 </head>
 <body class="bg-gray-100">
+
+    <header class="global-header">
+        <h3>External Land Forming Processes</h3>
+        <audio controls src="external_land_forming_processes.mp3">
+            Your browser does not support the audio element.
+        </audio>
+        <nav class="global-nav">
+            <a href="index.html">Back to Dashboard</a>
+            <a href="mapwork.html">Previous Topic</a>
+            <a href="soils2.html">Next Topic</a>
+        </nav>
+    </header>
 
     <!-- Main Container -->
     <div class="flex h-screen">
@@ -120,12 +165,12 @@
 
             <!-- Slide Content -->
             <div id="content-area" class="flex-1 p-6 lg:p-8 custom-scrollbar overflow-y-auto bg-white">
-                
+
                 <!-- Slide 1: Introduction to Weathering -->
                 <div class="slide" data-title="Weathering">
                     <h2 class="text-2xl font-bold mb-4">Section 1: Weathering</h2>
                     <p class="mb-4">Weathering is the foundational process of <strong>denudation</strong>, a term for all external processes that wear down the Earth's surface. It is specifically defined as the mechanical disintegration (physical breaking) and chemical decomposition (chemical decay) of rocks <em>in situ</em>. The term <em>in situ</em> is critical, as it means the rock is broken down in its original place, without being moved by agents like wind or water. The layer of loose, weathered rock material that results is called <strong>regolith</strong>.</p>
-                    
+
                     <h3 class="text-xl font-semibold mt-6 mb-2">1.1 Factors Influencing Weathering</h3>
                     <ul class="list-disc list-inside space-y-3 mb-4">
                         <li><strong>Climate:</strong> Temperature and moisture are the main climatic drivers. Hot, humid climates accelerate chemical weathering, as chemical reactions are faster at higher temperatures and water is a key reactant. Arid regions with large diurnal (daily) temperature ranges experience intense physical weathering.</li>
@@ -135,7 +180,7 @@
                     </ul>
 
                     <h3 class="text-xl font-semibold mt-6 mb-2">1.2 Types and Processes of Weathering</h3>
-                    
+
                     <h4 class="text-lg font-semibold mt-4 mb-2">Physical (Mechanical) Weathering</h4>
                     <p class="mb-2">This is the breakdown of rock into smaller fragments without altering its chemical makeup. It is dominant in deserts and high-altitude areas.</p>
                     <ul class="list-disc list-inside space-y-3 mb-4">
@@ -170,7 +215,7 @@
                 <div class="slide hidden" data-title="Mass Wasting">
                     <h2 class="text-2xl font-bold mb-4">Section 2: Mass Wasting</h2>
                     <p class="mb-4">Mass wasting, or mass movement, is the downhill movement of a large mass of weathered rock material (regolith) and soil, primarily driven by the force of gravity.</p>
-                    
+
                     <h3 class="text-xl font-semibold mt-6 mb-2">2.1 Factors Influencing Mass Wasting</h3>
                     <ul class="list-disc list-inside space-y-3 mb-4">
                         <li><strong>Gravity:</strong> The fundamental force that pulls material downslope.</li>
@@ -188,7 +233,7 @@
                         <li><strong>Solifluction:</strong> A specific type of creep that occurs in cold, high-latitude or high-altitude environments. During summer, the top layer of soil thaws and becomes saturated with water, but the ground underneath remains frozen (permafrost). This saturated layer then flows slowly downhill over the frozen ground.</li>
                     </ul>
                     <div class="w-full h-48 bg-gray-200 flex items-center justify-center rounded-lg my-4"><span class="text-gray-500">Diagram Placeholder: Evidence of Soil Creep</span></div>
-                    
+
                     <h4 class="text-lg font-semibold mt-4 mb-2">Rapid Mass Wasting</h4>
                      <ul class="list-disc list-inside space-y-3 mb-4">
                         <li><strong>Landslides:</strong> A general term for the rapid movement of rock and debris. Key types include:
@@ -203,7 +248,7 @@
                     </ul>
                     <div class="w-full h-48 bg-gray-200 flex items-center justify-center rounded-lg my-4"><span class="text-gray-500">Diagram Placeholder: Slump vs. Rockslide</span></div>
                 </div>
-                
+
                 <!-- Slide 3: Action of Rivers -->
                 <div class="slide hidden" data-title="Action of Rivers">
                     <h2 class="text-2xl font-bold mb-4">Section 3: Action of Rivers (Fluvial Processes)</h2>
@@ -224,7 +269,7 @@
                     </ul>
                      <h4 class="text-lg font-semibold mt-4 mb-2">Deposition</h4>
                     <p>A river deposits its load when it loses energy. This occurs when the river's velocity decreases due to a reduction in gradient, a decrease in water volume (e.g., during a dry season), or when it enters a body of still water like a lake or the sea.</p>
-                    
+
                     <h3 class="text-xl font-semibold mt-6 mb-2">3.2 Landforms of River Erosion (Upper Course)</h3>
                     <p>In its upper course, a river has a steep gradient and its energy is primarily directed towards vertical (downward) erosion.</p>
                     <ul class="list-disc list-inside space-y-2 mb-4">
@@ -248,7 +293,7 @@
                     </ul>
                     <div class="w-full h-48 bg-gray-200 flex items-center justify-center rounded-lg my-4"><span class="text-gray-500">Diagram Placeholder: Meander and Ox-bow Lake Formation</span></div>
                 </div>
-                
+
                 <!-- Slide 4: Arid Landforms -->
                 <div class="slide hidden" data-title="Arid Landforms">
                     <h2 class="text-2xl font-bold mb-4">Section 4: Action of Wind and Water in Arid Areas</h2>
@@ -273,7 +318,7 @@
                         <li><strong>Loess:</strong> Extensive blankets of fine, wind-blown silt. Loess deposits can form very fertile soils and are often found far from the original desert source.</li>
                     </ul>
                     <div class="w-full h-48 bg-gray-200 flex items-center justify-center rounded-lg my-4"><span class="text-gray-500">Diagram Placeholder: Barchan and Seif Dunes</span></div>
-                    
+
                     <h3 class="text-xl font-semibold mt-6 mb-2">4.3 Landforms of Water Action in Arid Areas</h3>
                     <p>Though infrequent, rainfall in deserts is often intense, leading to powerful flash floods that create distinct landforms.</p>
                      <ul class="list-disc list-inside space-y-2 mb-4">
@@ -298,7 +343,7 @@
                         <li><strong>Transportation:</strong> Material transported by a glacier is called <strong>moraine</strong>. It ranges in size from fine clay to huge boulders.</li>
                         <li><strong>Deposition:</strong> When a glacier melts, it deposits its load. Glacial deposits, known as <strong>till</strong> or <strong>boulder clay</strong>, are characteristically unsorted, meaning they are a mixture of all particle sizes.</li>
                     </ul>
-                    
+
                     <h3 class="text-xl font-semibold mt-6 mb-2">5.2 Landforms of Highland Glaciation (Alpine)</h3>
                     <p>These are erosional features found in mountainous areas.</p>
                      <ul class="list-disc list-inside space-y-2 mb-4">
@@ -310,7 +355,7 @@
                         <li><strong>Fjord:</strong> A very deep, steep-sided coastal inlet formed when a U-shaped valley is drowned by a rise in sea level after the glacier has melted.</li>
                     </ul>
                     <div class="w-full h-48 bg-gray-200 flex items-center justify-center rounded-lg my-4"><span class="text-gray-500">Diagram Placeholder: Formation of a Cirque, Arête and Horn</span></div>
-                    
+
                     <h3 class="text-xl font-semibold mt-6 mb-2">5.3 Landforms of Lowland Glaciation (Continental)</h3>
                     <p>These features, mostly depositional, are formed by vast ice sheets covering large areas.</p>
                     <ul class="list-disc list-inside space-y-2 mb-4">
@@ -321,7 +366,7 @@
                         <li><strong>Outwash Plains:</strong> Extensive, gently sloping plains composed of sand and gravel that were deposited by meltwater streams flowing away from the front of a melting ice sheet.</li>
                     </ul>
                 </div>
-                
+
                 <!-- Slide 6: Coastal Processes -->
                 <div class="slide hidden" data-title="Coastal Processes">
                     <h2 class="text-2xl font-bold mb-4">Section 6: Coastal Processes (Action of Waves)</h2>
@@ -354,12 +399,12 @@
                         <li><strong>Tombolos:</strong> A spit that has grown out from the coast to connect with an offshore island.</li>
                     </ul>
                 </div>
-                
+
                 <!-- Slide 7: Karst Scenery -->
                 <div class="slide hidden" data-title="Karst (Limestone) Scenery">
                     <h2 class="text-2xl font-bold mb-4">Section 7: Action of Water in Limestone Areas (Karst Scenery)</h2>
                     <p class="mb-4">In regions with soluble rocks like limestone, water action (mainly through carbonation) creates a unique and distinctive landscape known as <strong>karst scenery</strong>. A key characteristic of these areas is the lack of surface drainage, as water quickly percolates underground through a network of joints and fissures.</p>
-                    
+
                     <h3 class="text-xl font-semibold mt-6 mb-2">7.1 Surface Features</h3>
                     <ul class="list-disc list-inside space-y-3 mb-4">
                         <li><strong>Limestone Pavements:</strong> A bare rock surface dissected by a network of vertical cracks called <strong>grikes</strong>, which have been widened by solution. The rectangular blocks of limestone that are separated by the grikes are called <strong>clints</strong>.</li>
@@ -558,7 +603,7 @@
                     sideMenu.appendChild(listItem);
                 });
             }
-            
+
             /**
              * Shows a specific slide by its index and hides others.
              * @param {number} index - The index of the slide to show.
@@ -580,7 +625,7 @@
              */
             function updateUI() {
                 const currentTitle = slides[currentSlideIndex].getAttribute('data-title');
-                
+
                 // Update Breadcrumbs
                 breadcrumbs.textContent = `Home / ${currentTitle}`;
 
@@ -595,7 +640,7 @@
                 // Update Prev/Next Buttons State
                 prevBtn.disabled = currentSlideIndex === 0;
                 nextBtn.disabled = currentSlideIndex === slides.length - 1;
-                
+
                 // Scroll content to top on slide change
                 contentArea.scrollTop = 0;
             }

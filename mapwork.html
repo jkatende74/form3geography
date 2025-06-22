@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Guide to Mapwork</title>
-    
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- MathJax CDN -->
     <script>
         MathJax = {
@@ -26,11 +26,11 @@
     <style>
         /* Custom styles for a fixed, non-scrolling layout */
         html, body {
-            height: 100%;
-            overflow: hidden;
+            /* height: 100%; */ /* Removed to allow page to expand with new header */
+            /* overflow: hidden; */ /* Removed to allow page to expand */
             font-family: 'Inter', sans-serif;
         }
-        
+
         /* Custom scrollbar for webkit browsers */
         .custom-scrollbar::-webkit-scrollbar {
             width: 8px;
@@ -67,16 +67,61 @@
         details[open] > summary {
             background-color: #d1d5db;
         }
-        
+
         details > div {
             padding: 1rem;
             border: 1px solid #d1d5db;
             border-top: none;
             border-radius: 0 0 0.375rem 0.375rem;
         }
+
+        /* Styles for the new global header */
+        .global-header {
+            background-color: #333;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000; /* Ensure it's above other content */
+        }
+        .global-header audio {
+            display: block;
+            margin: 10px auto;
+            max-width: 80%;
+        }
+        .global-nav a {
+            color: #FFF;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 4px;
+            background-color: #555;
+        }
+        .global-nav a:hover {
+            background-color: #777;
+        }
+        .global-nav .nav-disabled {
+            color: #aaa;
+            pointer-events: none;
+            background-color: #444;
+        }
     </style>
 </head>
 <body class="bg-gray-100">
+
+    <header class="global-header">
+        <h3>Mapwork</h3>
+        <audio controls src="mapwork_f3.mp3">
+            Your browser does not support the audio element.
+        </audio>
+        <nav class="global-nav">
+            <a href="index.html">Back to Dashboard</a>
+            <a href="statistical_methods4.html">Previous Topic</a>
+            <a href="external_land_forming_processes3.html">Next Topic</a>
+        </nav>
+    </header>
 
     <!-- Main Container -->
     <div class="flex h-screen">
@@ -107,12 +152,12 @@
 
             <!-- Slide Content -->
             <div id="content-area" class="flex-1 p-6 lg:p-8 custom-scrollbar overflow-y-auto bg-white">
-                
+
                 <!-- Slide 1: Fundamentals of Maps -->
                 <div class="slide" data-title="Fundamentals of Maps">
                     <h2 class="text-2xl font-bold mb-4">Section 1: The Fundamentals of Maps</h2>
                     <p class="mb-4">Mapwork is the study and practice of interpreting and using maps. A map is a two-dimensional, scaled representation of the Earth's surface, or a part of it, showing physical and human-made features. For the KCSE syllabus, the primary focus is on <strong>topographical maps</strong>, which are detailed maps showing landforms (relief), drainage, vegetation, and cultural (human) features.</p>
-                    
+
                     <h3 class="text-xl font-semibold mt-6 mb-2">1.1 Marginal Information: The Map's Metadata</h3>
                     <p class="mb-4">Before reading a map, one must understand its marginal information—the details provided in the map's border or "margin". These essentials provide context and are crucial for accurate interpretation.</p>
                     <ul class="list-disc list-inside space-y-2 mb-4">
@@ -274,11 +319,11 @@
                         <span class="text-gray-500">Placeholder for Contour Patterns Diagram</span>
                     </div>
                 </div>
-                
+
                 <!-- Slide 5: Advanced Mapwork Skills -->
                 <div class="slide hidden" data-title="Advanced Mapwork Skills">
                     <h2 class="text-2xl font-bold mb-4">Section 5: Advanced Mapwork Skills</h2>
-                    
+
                     <h3 class="text-xl font-semibold mt-6 mb-2">5.1 Drawing a Cross-Section (Profile)</h3>
                     <p class="mb-4">A cross-section shows the side-view of the relief along a specific line.</p>
                     <ol class="list-decimal list-inside space-y-2 mb-4">
@@ -304,7 +349,7 @@
                         <li>Ensure VI and HE are in the same units.</li>
                         <li>Calculate the gradient and express it as a ratio (e.g., 1:10).</li>
                     </ol>
-                    
+
                     <h3 class="text-xl font-semibold mt-6 mb-2">5.4 Determining Intervisibility</h3>
                     <p class="mb-4">Intervisibility is whether one point on a map can be seen from another.</p>
                     <ul class="list-disc list-inside space-y-2">
@@ -861,7 +906,7 @@
                     sideMenu.appendChild(listItem);
                 });
             }
-            
+
             /**
              * Shows a specific slide by its index and hides others.
              * @param {number} index - The index of the slide to show.
@@ -883,7 +928,7 @@
              */
             function updateUI() {
                 const currentTitle = slides[currentSlideIndex].getAttribute('data-title');
-                
+
                 // Update Breadcrumbs
                 breadcrumbs.textContent = `Home / ${currentTitle}`;
 
@@ -898,7 +943,7 @@
                 // Update Prev/Next Buttons State
                 prevBtn.disabled = currentSlideIndex === 0;
                 nextBtn.disabled = currentSlideIndex === slides.length - 1;
-                
+
                 // Scroll content to top on slide change
                 contentArea.scrollTop = 0;
             }
