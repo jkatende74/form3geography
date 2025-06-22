@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Guide to Statistical Methods</title>
-    
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- MathJax CDN -->
     <script>
         MathJax = {
@@ -26,11 +26,11 @@
     <style>
         /* Custom styles for a fixed, non-scrolling layout */
         html, body {
-            height: 100%;
-            overflow: hidden;
+            /* height: 100%; */ /* Removed to allow page to expand with new header */
+            /* overflow: hidden; */ /* Removed to allow page to expand */
             font-family: 'Inter', sans-serif;
         }
-        
+
         /* Custom scrollbar for webkit browsers */
         .custom-scrollbar::-webkit-scrollbar {
             width: 8px;
@@ -67,16 +67,62 @@
         details[open] > summary {
             background-color: #d1d5db;
         }
-        
+
         details > div {
             padding: 1rem;
             border: 1px solid #d1d5db;
             border-top: none;
             border-radius: 0 0 0.375rem 0.375rem;
         }
+
+        /* Styles for the new global header */
+        .global-header {
+            background-color: #333;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000; /* Ensure it's above other content */
+        }
+        .global-header audio {
+            display: block;
+            margin: 10px auto;
+            max-width: 80%;
+        }
+        .global-nav a {
+            color: #FFF;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 4px;
+            background-color: #555;
+        }
+        .global-nav a:hover {
+            background-color: #777;
+        }
+        .global-nav .nav-disabled {
+            color: #aaa;
+            pointer-events: none;
+            background-color: #444;
+        }
+
     </style>
 </head>
 <body class="bg-gray-100">
+
+    <header class="global-header">
+        <h3>Statistics</h3>
+        <audio controls src="Statistical Methods in KCSE Geography.mp3">
+            Your browser does not support the audio element.
+        </audio>
+        <nav class="global-nav">
+            <a href="index.html">Back to Dashboard</a>
+            <span class="nav-disabled">Previous Topic</span>
+            <a href="mapwork.html">Next Topic</a>
+        </nav>
+    </header>
 
     <!-- Main Container -->
     <div class="flex h-screen">
@@ -107,13 +153,13 @@
 
             <!-- Slide Content -->
             <div id="content-area" class="flex-1 p-6 lg:p-8 custom-scrollbar overflow-y-auto bg-white">
-                
+
                 <!-- Slide 1: Introduction -->
                 <div class="slide" data-title="Introduction">
                     <h2 class="text-2xl font-bold mb-4">Section 1: Introduction and Importance of Statistical Methods</h2>
                     <h3 class="text-xl font-semibold mt-6 mb-2">Defining Statistics in the Geographical Context</h3>
                     <p class="mb-4">Statistics, in its broadest sense, is the science concerned with the <strong>systematic collection, organization, analysis, interpretation, and presentation of data</strong>. In Geography, it involves applying these techniques to explore, understand, and explain spatial patterns, dynamic relationships, and evolving trends of diverse geographical phenomena. While Form 3 notes introduce specific methods, the KCSE syllabus starts with this foundational definition.</p>
-                    
+
                     <h3 class="text-xl font-semibold mt-6 mb-2">Dual Purpose of Statistical Methods</h3>
                     <p class="mb-4">Statistical methods in geography serve a dual purpose:</p>
                     <ul class="list-disc list-inside space-y-2 mb-4">
@@ -137,7 +183,7 @@
                 <!-- Slide 2: Foundational Concepts -->
                 <div class="slide hidden" data-title="Foundational Concepts">
                     <h2 class="text-2xl font-bold mb-4">Section 2: Foundational Statistical Concepts for Geography</h2>
-                    
+
                     <h3 class="text-xl font-semibold mt-6 mb-2">Types and Sources of Statistical Data</h3>
                     <p class="mb-4">Understanding the nature and origin of data is paramount before any analysis or presentation.</p>
                     <h4 class="text-lg font-semibold mt-4 mb-2">Types of Data</h4>
@@ -189,7 +235,7 @@
                 <div class="slide hidden" data-title="Bar Graphs">
                     <h2 class="text-2xl font-bold mb-4">3.1 Bar Graphs</h2>
                     <p class="mb-4">Bar graphs use rectangular bars whose lengths are proportional to the values they represent. They are ideal for displaying and comparing discrete data.</p>
-                    
+
                     <h3 class="text-xl font-semibold mt-6 mb-2">3.1.1 Simple Bar Graphs</h3>
                     <h4 class="text-lg font-semibold mt-4 mb-2">Construction</h4>
                     <ol class="list-decimal list-inside space-y-2 mb-4">
@@ -239,7 +285,7 @@
                 <!-- Slide 4: Circular Representation -->
                 <div class="slide hidden" data-title="Circular Representation">
                     <h2 class="text-2xl font-bold mb-4">3.2 Circular Representation Methods</h2>
-                    
+
                     <h3 class="text-xl font-semibold mt-6 mb-2">3.2.1 Simple Pie Charts (Divided Circles)</h3>
                     <h4 class="text-lg font-semibold mt-4 mb-2">Construction</h4>
                     <ol class="list-decimal list-inside space-y-2 mb-4">
@@ -273,7 +319,7 @@
                 <!-- Slide 5: Line-Based Graphs -->
                 <div class="slide hidden" data-title="Line-Based Graphs">
                     <h2 class="text-2xl font-bold mb-4">3.3 Line-Based Graphs</h2>
-                    
+
                     <h3 class="text-xl font-semibold mt-6 mb-2">3.3.1 Simple Line Graphs</h3>
                     <h4 class="text-lg font-semibold mt-4 mb-2">Construction</h4>
                     <ol class="list-decimal list-inside space-y-2 mb-4">
@@ -318,7 +364,7 @@
                 <!-- Slide 6: Specialized Diagrams -->
                 <div class="slide hidden" data-title="Specialized Diagrams">
                     <h2 class="text-2xl font-bold mb-4">3.5 Specialized Geographical Diagrams</h2>
-                    
+
                     <h3 class="text-xl font-semibold mt-6 mb-2">3.5.1 Wind Rose</h3>
                     <h4 class="text-lg font-semibold mt-4 mb-2">Construction</h4>
                     <ol class="list-decimal list-inside space-y-2 mb-4">
@@ -331,7 +377,7 @@
                     <div class="w-full h-64 bg-gray-200 flex items-center justify-center rounded-lg my-4">
                         <span class="text-gray-500">Placeholder for Wind Rose Diagram</span>
                     </div>
-                    
+
                     <h3 class="text-xl font-semibold mt-6 mb-2">3.5.2 Population Pyramids</h3>
                     <h4 class="text-lg font-semibold mt-4 mb-2">Construction</h4>
                     <ol class="list-decimal list-inside space-y-2 mb-4">
@@ -385,12 +431,12 @@
                 <div class="slide hidden" data-title="Revision Questions">
                     <h2 class="text-2xl font-bold mb-4">Revision Questions</h2>
                     <div class="space-y-4">
-                        
+
                         <details>
                             <summary>1. Define statistics within the discipline of Geography.</summary>
                             <div><p>Statistics in Geography is the science of collecting, organizing, analyzing, interpreting, and presenting data to understand spatial patterns and relationships.</p></div>
                         </details>
-                        
+
                         <details>
                             <summary>2. What is the primary purpose of applying statistical methods in Geography?</summary>
                             <div><p>The primary purpose is descriptive analysis: to summarize and characterize geographical features and occurrences using measures like averages and graphical representations.</p></div>
@@ -425,7 +471,7 @@
                             <summary>8. What is the main advantage of a compound bar graph?</summary>
                             <div><p>It effectively displays both the total amount for a category and the breakdown of its constituent parts simultaneously.</p></div>
                         </details>
-                        
+
                         <details>
                             <summary>9. What is a polygraph, and what is its most common application in geography?</summary>
                             <div><p>A polygraph combines a line graph and a bar graph. Its most common application is a climatic graph, showing temperature (line) and rainfall (bars).</p></div>
@@ -460,7 +506,7 @@
                             <summary>15. What is the range of a dataset?</summary>
                             <div><p>The range is the difference between the highest and lowest values in a dataset. It provides a simple measure of spread.</p></div>
                         </details>
-                        
+
                         <details>
                             <summary>16. Beyond mere numerical computation, what does statistics involve in the geographical context?</summary>
                             <div><p>It involves the rigorous application of systematic techniques to explore, understand, and explain spatial patterns, dynamic relationships, and evolving trends of diverse geographical phenomena.</p></div>
@@ -480,7 +526,7 @@
                             <summary>19. How do statistical methods help in understanding geographical patterns and relationships?</summary>
                             <div><p>They are crucial for identifying patterns and relationships in geographical distributions, such as analyzing population density variations or the link between rainfall and crop yields.</p></div>
                         </details>
-                        
+
                         <details>
                             <summary>20. Provide a Kenyan example of identifying patterns and relationships using statistical methods.</summary>
                             <div><p>Analyzing population density variations across different counties in Kenya.</p></div>
@@ -535,7 +581,7 @@
                             <summary>30. List four basic data analysis techniques mandated by the KCSE syllabus.</summary>
                             <div><p>Arithmetic Mean, Median, Mode, Percentage, and Range.</p></div>
                         </details>
-                        
+
                         <details>
                             <summary>31. Name five different types of graphical representations included in the KCSE syllabus.</summary>
                             <div><p>Line graphs, bar graphs (simple, comparative, compound), polygraphs, proportional circles, and pie charts.</p></div>
@@ -560,7 +606,7 @@
                             <summary>35. Describe the implied progression of complexity in the study of statistical methods according to the syllabus.</summary>
                             <div><p>It begins with fundamental data handling and simple graphs, then moves towards more complex and specialized diagrams and maps (e.g., from simple to compound bar graphs).</p></div>
                         </details>
-                        
+
                         <details>
                             <summary>36. What is the overarching syllabus objective regarding statistical data, highlighting a skill beyond just construction?</summary>
                             <div><p>The objective is for students to "analyse, interpret and present statistical data using appropriate graphical methods", which includes critically selecting the most suitable method.</p></div>
@@ -585,7 +631,7 @@
                             <summary>40. According to the KCSE syllabus, what are the major sources from which geographical data can be obtained?</summary>
                             <div><p>Fieldwork, Published Sources, Unpublished Sources, and Electronic Media.</p></div>
                         </details>
-                        
+
                         <details>
                             <summary>41. Name three types of published sources of secondary geographical data.</summary>
                             <div><p>Government Reports (e.g., census data), Academic Journals and Books, and Maps and Atlases.</p></div>
@@ -610,7 +656,7 @@
                             <summary>45. How is Counting used as a method of data collection in geography?</summary>
                             <div><p>It involves enumerating specific items or occurrences within a defined area or time period (e.g., counting vehicles).</p></div>
                         </details>
-                        
+
                         <details>
                             <summary>46. Explain the Tallying method of recording data.</summary>
                             <div><p>It's used for frequency counts, typically involving making four strokes with a fifth crossing them out to represent a group of five, which simplifies counting.</p></div>
@@ -635,7 +681,7 @@
                             <summary>50. Give two geographical applications for calculating percentages.</summary>
                             <div><p>Calculating the percentage of a country's population in different age groups for a population pyramid, or the percentage contribution of different crops to total agricultural output.</p></div>
                         </details>
-                        
+
                         <details>
                             <summary>51. State two advantages of using Simple Bar Graphs.</summary>
                             <div><p>They are simple to construct and understand, and they provide a clear visual comparison between discrete categories.</p></div>
@@ -655,12 +701,12 @@
                             <summary>54. What is a key advantage of using Comparative Bar Graphs?</summary>
                             <div><p>They allow for direct and easy visual comparison of multiple variables across the same categories.</p></div>
                         </details>
-                        
+
                         <details>
                             <summary>55. State two disadvantages of using a Simple Pie Chart.</summary>
                             <div><p>It's difficult to accurately compare sectors if their sizes are similar, and it becomes cluttered if there are too many components.</p></div>
                         </details>
-                        
+
                         <details>
                             <summary>56. What is the key difference between Simple Pie Charts and Proportional Divided Circles?</summary>
                             <div><p>In Proportional Divided Circles, the area of each circle is proportional to the total quantity it represents, unlike in a simple pie chart where the circle size is arbitrary.</p></div>
@@ -685,7 +731,7 @@
                             <summary>60. What does a narrow base on a population pyramid indicate?</summary>
                             <div><p>A narrow base indicates a low birth rate and a smaller proportion of young people, often typical of countries with declining fertility.</p></div>
                         </details>
-                        
+
                         <details>
                             <summary>61. What is a major disadvantage of a dot map?</summary>
                             <div><p>It is difficult to extract precise numerical data from areas with many dots, as counting them is impractical, and the visual impression can be affected by dot size and value.</p></div>
@@ -710,7 +756,7 @@
                             <summary>65. What does a "barrel shape" on a population pyramid signify?</summary>
                             <div><p>It indicates an aging population with low birth rates and low death rates, leading to a higher proportion of elderly people and a longer life expectancy (a stationary pyramid).</p></div>
                         </details>
-                        
+
                         <details>
                             <summary>66. Why should standardized data (e.g., rates, densities) be used for choropleth maps instead of raw totals?</summary>
                             <div><p>Using raw totals can be misleading, as larger areas might appear more significant simply due to their size, not because of a higher concentration of the phenomenon.</p></div>
@@ -720,7 +766,7 @@
                             <summary>67. What is a divided bar/rectangle graph used for?</summary>
                             <div><p>It is used to show the proportional composition of a single total (where the bar represents 100%) or to compare the composition of totals across different categories.</p></div>
                         </details>
-                        
+
                         <details>
                             <summary>68. What are two advantages of using line graphs?</summary>
                             <div><p>They clearly show trends, fluctuations, and patterns in continuous data, and are effective for comparing trends of multiple datasets on the same graph.</p></div>
@@ -735,7 +781,7 @@
                             <summary>70. Give a Kenyan example of how a dot map could be used.</summary>
                             <div><p>To show the distribution of livestock (e.g., cattle) across different counties or the spatial pattern of specific crop acreages.</p></div>
                         </details>
-                        
+
                         <details>
                             <summary>71. What does an indentation or "pinched" section in a population pyramid suggest?</summary>
                             <div><p>It can suggest events that caused higher mortality or reduced births in the past (e.g., wars, famines, epidemics) or significant out-migration from specific age groups.</p></div>
@@ -760,7 +806,7 @@
                             <summary>75. Why is a polygraph particularly powerful in geography?</summary>
                             <div><p>It facilitates the visualization of relationships between key environmental variables, such as temperature and rainfall in a climatic graph.</p></div>
                         </details>
-                        
+
                         <details>
                             <summary>76. What is one advantage and one disadvantage of a divided bar graph?</summary>
                             <div><p>Advantage: Clearly shows the constituent parts of a whole as proportions. Disadvantage: It can be difficult to accurately compare the absolute sizes of individual segments across different bars if the total bar lengths vary.</p></div>
@@ -770,7 +816,7 @@
                             <summary>77. What is one advantage and one disadvantage of a wind rose?</summary>
                             <div><p>Advantage: Provides a clear, compact visual summary of complex wind data. Disadvantage: Can be complex to construct manually, and its accuracy depends on the quality and duration of the input data.</p></div>
                         </details>
-                        
+
                         <details>
                             <summary>78. What is one advantage and one disadvantage of a population pyramid?</summary>
                             <div><p>Advantage: Provides a very clear visual representation of a population's age and sex composition. Disadvantage: Interpretation requires demographic knowledge to fully understand the implications of different shapes.</p></div>
@@ -790,7 +836,7 @@
                             <summary>81. What information is often indicated in the center of a wind rose circle?</summary>
                             <div><p>The percentage of calm periods (winds below a certain threshold).</p></div>
                         </details>
-                        
+
                         <details>
                             <summary>82. Why is it important for bars in a simple bar graph to have the same width and be separated by equal spaces?</summary>
                             <div><p>To avoid misinterpretation and maintain visual integrity, ensuring that comparisons are based solely on the length/height of the bars.</p></div>
@@ -810,7 +856,7 @@
                             <summary>85. What does the term "youth dependency ratio" mean in the context of a population pyramid?</summary>
                             <div><p>It refers to the ratio of the young dependent population (typically under 15) to the working-age population. A wide-based pyramid implies a high youth dependency ratio.</p></div>
                         </details>
-                        
+
                         <details>
                             <summary>86. Why is it crucial to use an equal-area map projection for a dot map?</summary>
                             <div><p>To ensure that the visual density of dots accurately reflects the actual density of the phenomenon on the ground, preventing distortion of perceived density.</p></div>
@@ -830,7 +876,7 @@
                             <summary>89. What kind of geographical information can a bulge in a specific age group on a population pyramid indicate?</summary>
                             <div><p>It can indicate a past "baby boom" or significant in-migration of people in that age group (e.g., working-age migrants).</p></div>
                         </details>
-                        
+
                         <details>
                             <summary>90. What is the role of a "key" or "legend" in a compound bar graph or a choropleth map?</summary>
                             <div><p>The key explains what the different colors, shading patterns, or symbols represent on the graph or map, making it interpretable.</p></div>
@@ -840,7 +886,7 @@
                             <summary>91. What is a primary disadvantage of all circular representation methods (pie charts, proportional circles)?</summary>
                             <div><p>They are not suitable for showing changes or trends over time.</p></div>
                         </details>
-                        
+
                         <details>
                             <summary>92. What practical application might a wind rose have in urban planning?</summary>
                             <div><p>Understanding local wind patterns can inform architectural design for natural ventilation or help plan the dispersal of air pollutants from industrial areas.</p></div>
@@ -855,7 +901,7 @@
                             <summary>94. Why is fieldwork an important source of data for statistical analysis in geography?</summary>
                             <div><p>It is a cornerstone of geographical inquiry that provides primary, original data through direct engagement with the environment, allowing for firsthand observation and measurement.</p></div>
                         </details>
-                        
+
                         <details>
                             <summary>95. What does it mean if a dataset is "bimodal"?</summary>
                             <div><p>It means the dataset has two modes; two different values appear with the same highest frequency.</p></div>
@@ -914,7 +960,7 @@
                     sideMenu.appendChild(listItem);
                 });
             }
-            
+
             /**
              * Shows a specific slide by its index and hides others.
              * @param {number} index - The index of the slide to show.
@@ -936,7 +982,7 @@
              */
             function updateUI() {
                 const currentTitle = slides[currentSlideIndex].getAttribute('data-title');
-                
+
                 // Update Breadcrumbs
                 breadcrumbs.textContent = `Home / ${currentTitle}`;
 
@@ -951,7 +997,7 @@
                 // Update Prev/Next Buttons State
                 prevBtn.disabled = currentSlideIndex === 0;
                 nextBtn.disabled = currentSlideIndex === slides.length - 1;
-                
+
                 // Scroll content to top on slide change
                 contentArea.scrollTop = 0;
             }

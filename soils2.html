@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Guide to Soils</title>
-    
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- MathJax CDN -->
     <script>
         MathJax = {
@@ -26,11 +26,11 @@
     <style>
         /* Custom styles for a fixed, non-scrolling layout */
         html, body {
-            height: 100%;
-            overflow: hidden;
+            /* height: 100%; */ /* Removed to allow page to expand with new header */
+            /* overflow: hidden; */ /* Removed to allow page to expand */
             font-family: 'Inter', sans-serif;
         }
-        
+
         /* Custom scrollbar for webkit browsers */
         .custom-scrollbar::-webkit-scrollbar {
             width: 8px;
@@ -67,7 +67,7 @@
         details[open] > summary {
             background-color: #d1d5db;
         }
-        
+
         details > div {
             padding: 1rem;
             border: 1px solid #d1d5db;
@@ -87,9 +87,54 @@
             color: #374151;
         }
 
+        /* Styles for the new global header */
+        .global-header {
+            background-color: #333;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000; /* Ensure it's above other content */
+        }
+        .global-header audio {
+            display: block;
+            margin: 10px auto;
+            max-width: 80%;
+        }
+        .global-nav a {
+            color: #FFF;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 4px;
+            background-color: #555;
+        }
+        .global-nav a:hover {
+            background-color: #777;
+        }
+        .global-nav .nav-disabled {
+            color: #aaa;
+            pointer-events: none;
+            background-color: #444;
+        }
+
     </style>
 </head>
 <body class="bg-gray-100">
+
+    <header class="global-header">
+        <h3>Soils</h3>
+        <audio controls src="soil.mp3">
+            Your browser does not support the audio element.
+        </audio>
+        <nav class="global-nav">
+            <a href="index.html">Back to Dashboard</a>
+            <a href="external_land_forming_processes3.html">Previous Topic</a>
+            <a href="agriculture3.html">Next Topic</a>
+        </nav>
+    </header>
 
     <!-- Main Container -->
     <div class="flex h-screen">
@@ -120,7 +165,7 @@
 
             <!-- Slide Content -->
             <div id="content-area" class="flex-1 p-6 lg:p-8 custom-scrollbar overflow-y-auto bg-white">
-                
+
                 <!-- Slide 1: Introduction -->
                 <div class="slide" data-title="Introduction">
                     <h2 class="text-2xl font-bold mb-4">Introduction: The Foundation of Life</h2>
@@ -194,7 +239,7 @@
                         <li><strong>R Horizon (Bedrock):</strong> Unweathered, solid parent rock.</li>
                     </ul>
                     <div class="w-full h-48 bg-gray-200 flex items-center justify-center rounded-lg my-4"><span class="text-gray-500">Diagram Placeholder: Soil Profile Horizons</span></div>
-                    
+
                     <h3 class="text-xl font-semibold mt-6 mb-2">3.2 Soil Catena</h3>
                     <p class="mb-4">A soil catena is the sequence of different soil types found down a slope, all derived from the same parent material but varying due to differences in relief and drainage. Typically:</p>
                      <ul class="list-disc list-inside space-y-2 mb-4">
@@ -225,7 +270,7 @@
                         <li><strong>Halomorphic Soils:</strong> Saline/alkaline soils of arid regions.</li>
                         <li><strong>Andosols:</strong> Fertile soils from volcanic ash, found in Kenya's Rift Valley. Ideal for horticulture but have high phosphorus fixation.</li>
                     </ul>
-                    
+
                     <h3 class="text-xl font-semibold mt-6 mb-2">4.3 Azonal Soils</h3>
                     <p class="mb-2">Young, immature soils without a well-developed profile.</p>
                     <ul class="list-disc list-inside space-y-2 mb-4">
@@ -270,7 +315,7 @@
                         <li><strong>Sustainable Land Use:</strong> Afforestation and managing grazing to prevent soil exposure.</li>
                     </ul>
                 </div>
-                
+
                 <!-- Slide 7: Revision Questions -->
                 <div class="slide hidden" data-title="Revision Questions">
                     <h2 class="text-2xl font-bold mb-4">Revision Questions</h2>
@@ -390,7 +435,7 @@
                     sideMenu.appendChild(listItem);
                 });
             }
-            
+
             /**
              * Shows a specific slide by its index and hides others.
              * @param {number} index - The index of the slide to show.
@@ -412,7 +457,7 @@
              */
             function updateUI() {
                 const currentTitle = slides[currentSlideIndex].getAttribute('data-title');
-                
+
                 // Update Breadcrumbs
                 breadcrumbs.textContent = `Home / ${currentTitle}`;
 
@@ -427,7 +472,7 @@
                 // Update Prev/Next Buttons State
                 prevBtn.disabled = currentSlideIndex === 0;
                 nextBtn.disabled = currentSlideIndex === slides.length - 1;
-                
+
                 // Scroll content to top on slide change
                 contentArea.scrollTop = 0;
             }
